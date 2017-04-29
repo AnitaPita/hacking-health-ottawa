@@ -157,6 +157,7 @@ function initApp() {
 			    lastName: lastName,
 			})
 			accountJustCreated = false;
+			window.location = "/";
 		}
 
 		if (user) {

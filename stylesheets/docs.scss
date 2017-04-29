@@ -1,0 +1,31 @@
+---
+---
+
+@import 'variables';
+
+#save-button, #publish-button {
+	a {
+		font-size:18px;
+		font-weight:bold;
+		color:$neutral;
+		background:$brighter;
+		border-radius:4px;
+		border-bottom:none;
+		padding: 8px 10px 6px 10px;
+		font-family:$sans-serif;
+		box-shadow: 0px 0px 7px rgba(0, 0, 0, 0);
+	}
+}
+#save-button a:hover, #publish-button a:hover {
+	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+	transition: box-shadow 0.3s linear;
+	cursor:pointer;
+}
+#save-button {
+	padding-right:10px;
+}
+
+@media only screen and (max-width: 1199px){}
+@media only screen and (min-width:768px) and (max-width: 959px) {}
+@media only screen and (max-width: 767px) {}
+@media only screen and (max-width: 480px) {}

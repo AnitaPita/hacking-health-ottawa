@@ -1,6 +1,7 @@
 <!--Metadata-->
 <meta charset="utf-8">
-<title>{{ site.data.values.site_title }}</title>
+<title>{{ page.title }} | {{ site.data.values.site_title }}</title>
+
 <meta name="description" content="{{ site.data.values.site_desc }}">
 <meta name="keywords" content="{{ site.data.values.site_keywords }}">
 <meta name="author" content="{{ site.data.values.site_author }}">
@@ -35,8 +36,12 @@
 </script>
 {% include login.js %}
 
+<!--Quill Rich Text Editor-->
+<script src="//cdn.quilljs.com/1.2.4/quill.min.js"></script>
+<link rel="stylesheet" href="/stylesheets/quill.snow.css">
+
 <!--Analytics-->
-<script>
+<!-- <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -45,7 +50,7 @@
   ga('create', 'UA-77140171-1', 'auto');
   ga('send', 'pageview');
 
-</script>
+</script> -->
 <script src="/js/js.cookie.js"></script>
 
 <!--Scroll Reveal-->

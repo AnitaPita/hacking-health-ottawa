@@ -1,8 +1,8 @@
 ---
+title: "Document"
 ---
 
 <!DOCTYPE html>
-
 
 <!--[if IE 8 ]> <html class="ie8"> <![endif]-->
 <!--[if IE 9 ]> <html class="ie9"> <![endif]-->
@@ -10,41 +10,44 @@
 	{% include head.html %}
 
 	<!--Page Specific Stylesheet-->
-	<link rel="stylesheet" href="/stylesheets/home.css">
+	<link rel="stylesheet" href="/stylesheets/docs.css">
 </head>
 <body ng-app="authApp" ng-controller="AuthController">
-	<div id="home-header">
-		{% include nav.html %}
-
-		<!--Hide the non-inverted logo and invert the top bar colours-->
-		<script type="text/javascript">
-			document.querySelector( "#top-bar" ).classList.toggle("invert");
-			document.querySelector( "#logo" ).classList.toggle("hidden");
-		</script>
-
-		<div class="content">
-			<div id="home-header__title">{{ site.data.values.home_title }}</div>
-			<div id="home-header__subtitle">
-				{{ site.data.values.home_description }}
-			</div>
-		</div>
-	</div>
+	{% include nav.html %}
+	
+	<!--Page Specific Formatting-->
+	<script type="text/javascript">
+		document.querySelector( "#logo-invert" ).classList.toggle("hidden");
+	</script>
 
 	<div class="content content--text">
-		<div id="recent-news">
-			<h1><strong>Recent News</strong></h1>
-			<div class="button"><a href="news/">See All Articles</a></div>
-			<div id="news-list">
-				{% for post in site.posts limit:3 %}
-					<div class="news-list__date">{{ post.date | date: '%b %d' }}</div>
-					<li class="recent-news__list-item">
-						<div class="news-list__link"><a href="{{ post.url }}">{{ post.title }}</a></div>
-						<div class="news-list__desc">{{ post.description }}</div>
-					</li>
-				{% endfor %}
-			</div>
+		<div><h1 id="document-name"></h1></div>
+		<div class="flex-wrapper">
+			<div id="save-button"><a onclick="saveDocument(document.getElementById('document-name').innerHTML)">Save</a></div>
+			<div id="publish-button"><a onclick="publishDocument()">Publish</a></div>
+		</div>
+		<script>
+			//Decodes the filename URI from the URL
+			var decoded = decodeURI (getURLParam().filename);
+			//If the filename exists
+			if (decoded)
+				document.getElementById("document-name").innerHTML = decoded;
+			else
+				document.getElementById("document-name").innerHTML = "Untitled Document";
+		</script>
+		<hr>
+		<!-- Quill Editor -->
+		<div id="editor">
+			<p>Start typing your manifesto here...</p>
 		</div>
 	</div>
+
+	<!-- Initialize Quill editor -->
+	<script>
+	  var quill = new Quill('#editor', {
+	    theme: 'snow'
+	  });
+	</script>
 	{% include footer.html %}
 </body>
 </html>
