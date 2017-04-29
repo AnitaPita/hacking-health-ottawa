@@ -30,28 +30,8 @@ function editDocument() {
 	});
 }
 
-function saveDocument(filename) {
-	var uid = firebase.auth().currentUser.uid;
-	var userRef = firebase.database().ref('private');
-
-	var title = filename;
-	userRef = userRef.child(uid);
-	userRef = userRef.child("documents");
-	var d = new Date();
-	var dlm = d.getUTCMonth()+" "+d.getUTCDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
-
-	userRef.push().set({
-		docName : title,
-		documentRef : ""	,
-		dateLastModified : dlm,
-		isPublished: false,
-		publishedKey : "",
-	})
-	//TODO: redirect to home
-	window.location = "/index.html";
-}
-
-function saveDocument(filename,privateKey) {
+function saveExistingDocument(filename, privateKey) {
+	console.log ("Editing an existing document");
 	var uid = firebase.auth().currentUser.uid;
 	var userRef = firebase.database().ref('private');
 
@@ -60,7 +40,7 @@ function saveDocument(filename,privateKey) {
 
 	userRef = userRef.child(uid);
 	userRef = userRef.child("documents");
-	userRef = userRef.child()
+	userRef = userRef.child(privateKey);
 	var d = new Date();
 	var dlm = d.getMonth()+" "+d.getDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
 
@@ -76,6 +56,56 @@ function saveDocument(filename,privateKey) {
 	// })
 
 	//TODO: redirect to edit
+}
+
+function saveNewDocument(filename) {
+	console.log("Saving a new document");
+
+	var uid = firebase.auth().currentUser.uid;
+	var userRef = firebase.database().ref('private');
+
+	var title = filename;
+	userRef = userRef.child(uid);
+	userRef = userRef.child("documents");
+	var d = new Date();
+	var dlm = d.getUTCMonth()+" "+d.getUTCDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
+	var documentRef = document.getElementById("editor").innerHTML;
+
+	userRef.push().set({
+		documentName : title,
+		documentRef : documentRef,
+		dateLastModified : dlm,
+		isPublished: false,
+		publishedKey : "",
+	})
+}
+
+function saveHandler (){
+	var documentName = document.getElementById('document-name').innerHTML;
+	var key = getURLParam().key;
+	if (!key)
+		saveNewDocument (documentName);
+	else
+		saveExistingDocument (documentName, key);
+}
+
+function getUserDocuments (divId) {
+	var uid = firebase.auth().currentUser.uid;
+
+	//Iterates through all saved documents
+	var query = firebase.database().ref('private/' + uid + '/documents/').orderByKey();
+	query.once("value").then(function(snapshot) {
+		var mergedHTML = '';
+		var noDocuments = 0;
+		snapshot.forEach(function(childSnapshot){
+			noDocuments++;
+			var documentName = childSnapshot.val().documentName;
+			var documentKey = childSnapshot.key;
+			var dateLastModified = childSnapshot.val().dateLastModified;
+			mergedHTML += "<div class='member-documents__document'><div class='member-documents__document-name'><a class='member-document__link' href='/edit.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div></div>";
+		});
+		document.getElementById(divId).innerHTML = mergedHTML;
+	});
 }
 
 function publishDocument(filename) {

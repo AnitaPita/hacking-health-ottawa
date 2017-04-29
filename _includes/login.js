@@ -176,30 +176,10 @@ function initApp() {
 		if (user && window.location.pathname == '/documents.html'){
 			getUserDocuments ("member-documents");
 		}
-
 		//Loads a document if in the edit directory 
 		if (user && window.location.pathname == '/edit.html'){
 			editDocument ();
 		}
-	});
-}
-
-function getUserDocuments (divId) {
-	var uid = firebase.auth().currentUser.uid;
-
-	//Iterates through all saved documents
-	var query = firebase.database().ref('private/' + uid + '/documents/').orderByKey();
-	query.once("value").then(function(snapshot) {
-		var mergedHTML = '';
-		var noDocuments = 0;
-		snapshot.forEach(function(childSnapshot){
-			noDocuments++;
-			var documentName = childSnapshot.val().documentName;
-			var documentKey = childSnapshot.key;
-			var dateLastModified = childSnapshot.val().dateLastModified;
-			mergedHTML += "<div class='member-documents__document'><div class='member-documents__document-name'><a class='member-document__link' href='/edit.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div></div>";
-		});
-		document.getElementById(divId).innerHTML = mergedHTML;
 	});
 }
 
