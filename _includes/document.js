@@ -6,25 +6,40 @@ function getUserID() {
 	return firebase.auth().currentUser.uid;
 }
 
-/*function getUserRef() {
-	return firebase.database().ref('private');
-}*/
-
 function createNewDocument(filename) {
-	docTitle = filename;
-	// create new codument
-	// redirect to a create page
 	if(!isSignedIn()){return;}
+
 	console.log("Creating document.");
+
+	var uid = firebase.auth().currentUser.uid;
+	var userRef = firebase.database().ref('private');
+
+	var title = filename || document.getElementById("document-name").innerHTML;
+	var documentRef = document.getElementById("editor").innerHTML;
+	userRef = userRef.child(uid);
+	userRef = userRef.child("documents");
+	var d = new Date();
+	var dlm = d.getUTCMonth()+" "+d.getUTCDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
+
+	userRef.push().set({
+		docName : title,
+		documentRef : documentRef,
+		dateLastModified : dlm,
+		isPublished: false,
+	})
 }
 
 function editDocument(docID) {
 	if(!isSignedIn()){return;}
 	var userDocs = firebase.database().ref("private/"+getUserID());
 	userDocs.equalTo(docID).once('value').then(function(snapshot) {
-		var title = snapshot.val().docName;
+		var title = snapshot.val().documentName;
     	var ref = snapshot.val().documentRef;
   });
+	return {
+		documentName: title,
+		documentRef: ref
+	}
 }
 
 function saveDocument(filename) {
@@ -32,17 +47,24 @@ function saveDocument(filename) {
 	var uid = firebase.auth().currentUser.uid;
 	var userRef = firebase.database().ref('private');
 
-	var title = filename || document.getElementById("document-name").innerHTML;
+	//var title = filename || document.getElementById("document-name").innerHTML;
 	var documentRef = document.getElementById("editor").innerHTML;
 
-	//console.log(userRef);
 	userRef = userRef.child(uid);
 	userRef = userRef.child("documents");
+	var d = new Date();
+	var dlm = d.getMonth()+" "+d.getDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
 
-	userRef.push().set({
-		docName : title,
+	userRef.update({
 		documentRef : documentRef,
-	})
+		dateLastModified : dlm,
+	});
+
+	// userRef.push().set({
+	// 	docName : title,
+	// 	documentRef : documentRef,
+	// 	dateLastModified : dlm,
+	// })
 }
 
 function publishDocument(filename) {
@@ -52,11 +74,15 @@ function publishDocument(filename) {
 	var title = filename || document.getElementById("document-name").innerHTML;
 	var documentRef = document.getElementById("editor").innerHTML;
 
+	var dlm = d.getUTCMonth()+" "+d.getUTCDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
+
 	docRef.push().set({
-		docName : title,
+		documentName : title,
 		documentRef : documentRef,
 		author : uid,
+		dateLastModified : dlm,
 	})
+	//return to home page with a success/fail.
 }
 
 </script>
