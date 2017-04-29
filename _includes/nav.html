@@ -1,0 +1,30 @@
+<div id="top-bar" class="invert {{page.lang}}">
+	<div id="top-bar__logo" class="animate">
+		<div>
+			<img id="logo-invert" src="/images/logo-invert.svg">
+			<img id="logo" src="/images/logo.svg">
+			<a href="/">{{ site.data.values.app_name }}</a>
+		</div>
+	</div>
+	<div id="top-bar__hamburger" class="animate">
+		<a onclick="return false;" id="top-bar__hamburger-toggle" href=""><span></span></a>
+	</div>
+	<div id="nav" class="animate">
+		<ul>
+			<li id="browse"><a class="top-level" href="/browse/">Browse</a></li>
+			<li id="heading"><a class="top-level" href="">Heading</a>
+				<div class="nav__sub-menu">
+				    <ul>
+				    	<li><a href="">Subheader 1</a></li>
+				    	<li><a href="">Subheader 2</a></li>
+				    	<li><a href="">Subheader 3</a></li>
+				    </ul>
+				</div>
+			</li>
+			<li id="members"><a class="top-level members-only" href="/members/">Members</a></li>
+			<li id="news"><a class="top-level" href="/news/">News</a></li>
+			<li><a href='' onclick='return false' class="top-level members-only">Create a Doc</a></li>
+			<li><a href='' onclick='return false' id="login-button" class="login-modal">Login</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,63 @@
+---
+title: Create a New Account
+---
+
+<!DOCTYPE html>
+
+
+<!--[if IE 8 ]> <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9"> <![endif]-->
+<head>
+	{% include head.html %}
+
+	<!--Page Specific Stylesheet-->
+	<link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+<body>
+	{% include nav.html %}
+	
+	<!--Page Specific Formatting-->
+	<script type="text/javascript">
+		document.querySelector( "#logo-invert" ).classList.toggle("hidden");
+	</script>
+	<div class="content content--text">
+		<blockquote id="new-account-pane">
+			<h3><strong>Create an account</strong>:</h3>
+			<label>Email Address</label>
+			<div class="input">
+				<input name='email' id='account-email' type='email' placeholder='Enter your email' />
+			</div>
+			<label>First Name</label>
+			<div class="input">
+				<input name='first_name' id='account-first-name' type='text' placeholder='' />
+			</div>
+			<label>Last Name</label>
+			<div class="input">
+				<input name='last_name' id='account-last-name' type='text' placeholder='' />
+			</div>
+			<label>Enter your Password</label>
+			<div class="input">
+				<input name='password_first' id='account-password-first' type='password' ng-model='password_first' placeholder='' />
+			</div>
+			<label>Confirm your Password</label>
+			<div class="input">
+				<input name='password_second' id='account-password-second' type='password' ng-model='password_second' placeholder='' />
+			</div> 
+			<div class="button" style="margin-top:10px;">
+				<a style="cursor:pointer" onclick='handleSignUp();'>
+					<strong>Create your account</strong>
+				</a>
+			</div>
+		</blockquote>
+	</div>
+
+	{% include footer.html %}
+</body>
+<script>
+//Authentication Info Modal
+$('#authentication-info-modal').click(function(){
+    vex.dialog.alert("<h3><strong>What is your Authentication Code?</strong></h3><p>To make sure that you are actually a medical student at one of our member schools, we distribute an <strong>authentication code</strong> to our membership. You can either find this code:<p><ol><li>In our CFMS welcome letter, which is in most medical school admissions package.</li><li>By contacting the <a href='/who-we-are/cfms-representatives.html'>CFMS representatives</a> at your school.</li></ol>");
+
+});
+</script>
+</html>

@@ -1,0 +1,16 @@
+#Set the default layout for a post to the 'news' format
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "news"
+
+#Number of pages in each archive page.
+paginate: 10
+paginate_path: "news/archives/:num/"
+
+gems: [jekyll-paginate]
+rdiscount:
+  extensions: [smart]

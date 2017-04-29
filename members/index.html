@@ -1,0 +1,48 @@
+---
+title: "Meetings"
+---
+
+<!DOCTYPE html>
+
+
+<!--[if IE 8 ]> <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9"> <![endif]-->
+<head>
+	{% include head.html %}
+
+	<!--Page Specific Stylesheet-->
+	<link rel="stylesheet" href="/stylesheets/members.css">
+</head>
+<body>
+	{% include nav.html %}
+
+	<div class="content">
+		<!--Page Specific Formatting-->
+		<script type="text/javascript">
+			document.querySelector( "#logo-invert" ).classList.toggle("hidden");
+			document.querySelector( "#members" ).classList.toggle("active");
+		</script>
+
+		<div id="side-content" class="editable">
+			<h1 id="page-title">Members</h1>
+
+			<div id="account-details" class="members-only">
+				<blockquote id="account-info">
+					<h3><strong>Your Account:</strong></h3>
+					<b>Name</b>: <span id="account-name"></span><br>
+					<b>Email Address</b>: <a id="account-email" href=""></a>
+				</blockquote>
+			</div>
+			<div class="non-members">
+				<blockquote>
+					<h3><strong>Please login to see this page</strong></h3>
+					<ul>
+						<li><a class="login-modal" href="" onclick="return false;">Login</a> to the CFMS website in order to view the content on this page.</li>
+					</ul>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+	{% include footer.html %}
+</body>
+</html>

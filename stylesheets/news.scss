@@ -1,0 +1,335 @@
+---
+---
+
+@import 'variables';
+
+/* #News Home Styling
+––––––––––––––––––––––––––––––––––––––––*/
+
+#newest-article {
+	background-color:$darker;
+}
+#newest-article__byline {
+	text-transform:uppercase;
+	font-weight:bold;
+	color:$neutral;
+	padding-bottom:10px;
+}
+#newest-article__title {
+	a, a:hover {color:white; border-bottom:none;}
+	font-family:$header;
+	line-height:1.2em;
+	padding-bottom:20px;
+}
+#newest-article__description {
+	color:$bright;
+	padding-bottom:20px;
+}
+#newest-article__date {
+	font-family:$header;
+	float:left;
+	position:relative;
+	color:$accent;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:15px;
+	bottom: -0.05em;
+}
+#newest-article__date:after {
+	content:"\2014";
+	color:$bright;
+	float:right;
+	font-size:20px;
+	font-weight:bold;
+	padding-right:7px;
+	padding-left:7px;
+	margin-top:-2px;
+}
+#news-icon {
+	padding-left:15px;
+	color:$bright;
+}
+#older-news__list {
+	padding-top:10px;
+	li {
+		list-style:none;
+		margin-left:85px;
+	}
+}
+
+/* #News Archive Styling
+––––––––––––––––––––––––––––––––––––––––*/
+
+#archives{
+	padding-bottom:40px;
+	#archives-title {
+		font-family:$header;
+		font-size:34px;
+		color:$dark;
+		font-weight:bold;
+		padding-top:10px;
+		padding-bottom:15px;
+		border-bottom:3px solid $brighter;
+		margin-bottom:-1px;
+	}
+	ul {
+		color:$accent;
+		font-size:24px;
+		font-weight:bold;
+		margin-left:10px;
+		li {
+			border-top:1px solid #EEE;
+			padding-top:10px;
+			margin-bottom:8px;
+			line-height:1.2em;
+		}
+		h1 {
+			font-size:20px;
+			padding-bottom:0px;
+			font-weight:bold;
+			a {color:$dark; border-bottom:none;}
+			a:hover {color:$accent;}
+		}
+		.date {
+			color:$bright;
+			font-family:$sans-serif;
+			font-size:16px;
+		}
+	}
+}
+
+#pagination {
+	#page-listing {
+		display:inline-block;
+		padding-right:10px; 
+		padding-left:10px;
+	}
+	.page-link {
+		font-size:20px;
+		font-family:$sans-serif;
+		font-weight:bold;
+		padding-right:5px;
+		padding-left:5px;
+		border-bottom:none;
+	}
+	.page-link:hover {
+		color:$dark;
+	}
+	#current-page {
+		color:$accent;
+		font-style:normal;
+	}
+	#prev-button, #next-button {
+		display:inline-block;
+		font-family:$sans-serif;
+		a {
+			padding-top:6px;
+			font-weight:bold;
+			color:$neutral;
+			border-color:$bright;
+		}
+		a:hover {
+			border-color:$neutral;
+		}
+	}
+	#prev-button.inactive, #next-button.inactive {
+		a, a:hover {
+			color:#DDD; 
+			border-color:#DDD;
+			cursor:default;
+		}
+	}
+
+	// Swap the direction of the arrow
+	#prev-button a:after {
+		content:"";
+		padding-left:0;
+	}
+	#prev-button a:before{
+		content:"←";
+		padding-right:8px;
+		vertical-align:bottom;
+		font-size:28px;
+	}
+}
+
+/* #News Page Styling
+––––––––––––––––––––––––––––––––––––––––*/
+
+#aside {
+	h6{
+		text-transform:uppercase;
+		font-weight:bold;
+		padding-top:5px;
+		padding-bottom:5px;
+		color:$bright;
+	}
+	color:$bright;
+	position:absolute; top:auto; left:890px; padding:0;
+	margin-top:0px;
+	font-family:$header;
+	font-size:14px;
+	line-height:1.5em;
+	width:220px;
+}
+#title {
+	font-family:$header;
+	font-size:32px;
+	color:$dark;
+	font-weight:bold;
+	padding-bottom:15px;
+	line-height:1.2em;
+}
+#date {
+	color:$accent;
+	font-family:$header;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:15px;
+	padding-bottom:10px;
+}
+#body {font-size:18px;}
+#title, #body { max-width:$content-width; }
+#body { padding-bottom:10px; }
+
+#other-news{
+	@extend .content;
+	background-color:$brighter;
+	margin-top:30px;
+	padding-top:35px;
+	padding-bottom:20px;
+	li {
+		list-style:none;
+		margin-left:80px;
+		margin-bottom:15px;
+		line-height:1.5em;
+	}
+	h1{
+		max-width:$content-width;
+		margin-bottom:15px;
+		text-transform:uppercase;
+		font-weight:bold;
+		font-size:24px;
+		color:$neutral;
+		padding-bottom:12px;
+		border-bottom:2px solid rgba(0,0,0,0.1);
+		margin-bottom:25px;
+	}
+}
+.news-date {
+	float:left;
+	font-size:16px;
+	font-weight:bold;
+	font-family:$header;
+	color:$accent;
+	display:inline-block;
+	margin-top:-1px;
+}
+.news-link {
+	display:inline-block;
+	margin-bottom:3px;
+	font-family:$sans-serif;
+	font-weight:bold;
+	color:$bright;
+	a {
+		font-family:$header;
+		font-weight:bold;
+		font-size:19px;
+		color:$dark;
+		border-bottom:none;
+	}
+	a:visited{color:$dark;}
+	a:hover{
+		border-bottom:none;
+		color:$accent;
+	}
+}
+.news-link:before{
+	content:'\2014';
+	color:$bright;
+	font-size:18px;
+	padding-left:6px;
+	font-weight:bold;
+	margin-left:-28px;
+	padding-right:7px;
+}
+.news-desc {
+	font-size:16px;
+	color:$neutral;
+	padding-bottom:8px;
+}
+
+@media only screen and (max-width: 1199px){
+}
+
+@media only screen and (max-width: 959px) {
+	#spotlight-title, #spotlight-content {
+		padding-top:30px;
+	}
+	#newest-byline {padding-top:40px;}
+	#title {padding-top:30px;}
+	#older-news .news-home-list {max-width:600px;}
+	#news-home-columns{
+		flex-wrap:wrap;
+		padding-bottom:0px;
+		.column {
+			padding-bottom:40px;
+		}
+	}
+	.news-home-list{padding-right:0px;}
+	#archives #archives-title {padding-top:30px;}
+	#archives {padding-bottom:30px;}
+	#archives ul {padding-bottom:0px;}
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	#newest-article {
+		padding-top:0px;
+		font-size:16px; 
+		padding-bottom:45px;
+	}
+	#newest-byline { 
+		font-size:16px; 
+		padding-bottom:5px;
+	}
+	#newest-title { 
+		font-size:1.2em; 
+		padding-bottom:15px;
+	}
+	#newest-description {
+		font-size:16px;
+		padding-bottom:5px;
+	}
+
+	#archives {
+		#archives-title {
+			font-size:1.2em;
+		}
+		ul{
+			font-size:18px;
+			li a { 
+				font-size:17px; 
+				line-height:1.2em;
+			}
+			li h1 {padding-bottom:5px;}
+		}
+		#pagination {
+			#page-listing { display:none; }
+			#prev-button { padding-right: 10px; }
+		}
+	}
+
+	#body {font-size:16px;}
+	#title {padding-bottom:10px; font-size:24px;}
+}
+
+/* Mobile Landscape */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* Mobile Portrait */
+@media only screen and (max-width: 480px) {
+	#spotlight-content {
+		.right {display:none;}
+	}
+}

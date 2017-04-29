@@ -1,0 +1,60 @@
+---
+---
+
+@import 'variables';
+
+/* #Footer
+––––––––––––––––––––––––––––––––––––––––*/
+
+#footer{
+	padding-top:40px;
+	padding-bottom:30px;
+	background-color:$dark;
+	font-family:$sans-serif;
+	color:$bright;
+	b {color:white}
+	h1{
+		font-weight:bold;
+		color:white;
+		padding-bottom:15px;
+	}
+	ul {
+		margin-left:0px;
+	}
+	li {
+		list-style: none;
+		margin-left:0px;
+	}
+	a {
+		border-bottom:none;
+		color:$accent;
+	}
+}
+.footer__col {
+	padding-right:30px;
+}
+.footer--content {
+	display:flex;
+}
+
+@media only screen and (max-width: 1199px){
+}
+
+/* iPad portrait browsing*/
+@media only screen and (min-width:768px) and (max-width: 959px) {
+
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	.footer--content {
+		flex-wrap:wrap;
+	}
+	.footer__col {
+		padding-right:0px;
+	}
+}
+
+/* Mobile Portrait */
+@media only screen and (max-width: 480px) {
+}

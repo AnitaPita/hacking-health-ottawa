@@ -1,0 +1,99 @@
+---
+---
+
+@import 'variables';
+
+/* #Home Page
+––––––––––––––––––––––––––––––––––––––––*/
+#home-header {
+	background-color:$dark;
+	background-size:530px;
+}
+#home-header__title {
+	font-size:3em;
+	line-height:1.1em;
+	font-family:$header;
+	font-weight:bold;
+	padding-top:20px;
+	color:white;
+}
+#home-header__subtitle {
+	padding-top:15px;
+	padding-bottom:60px;
+	font-size:1.3em;
+	font-family:$sans-serif;
+	color:$bright;
+}
+.recent-news__list-item {
+	list-style:none;
+	margin-left:90px;
+	margin-bottom:20px;
+}
+.news-list__date {
+	float:left;
+	font-size:16px;
+	font-weight:bold;
+	font-family:$header;
+	color:$accent;
+	display:inline-block;
+}
+.news-list__link{
+	display:inline-block;
+	margin-bottom:2px;
+	a {
+		font-family:$header;
+		font-weight:bold;
+		font-size:1.2em;
+		color:$darker;
+		border-bottom:none;
+		line-height:1.2em;
+	}
+	a:visited{color:$darker;}
+	a:hover{
+		border-bottom:none;
+		color:$accent;
+	}
+}
+.news-list__desc{
+	line-height:1.5em;
+	font-size:16px;
+	color:#444;
+}
+
+/* #Login Page
+––––––––––––––––––––––––––––––––––––––––*/
+$number-margin:50px;
+$number-margin-mobile:40px;
+
+@media only screen and (max-width: 959px) {
+}
+@media only screen and (max-width: 767px) {
+	.news-list__date {
+		float:none;
+		padding-bottom:8px;
+	}
+	.recent-news__list-item {
+		margin-left:0px;
+	}
+}
+@media only screen and (max-width: 480px) {
+}
+
+/* #Media specific modifications
+––––––––––––––––––––––––––––––––––––––––*/
+@media only screen and (max-width: 1199px){
+
+}
+
+/* iPad portrait browsing*/
+@media only screen and (max-width: 959px) {
+
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+}
+
+/* Mobile Portrait */
+@media only screen and (max-width: 480px) {
+}

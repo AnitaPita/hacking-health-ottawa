@@ -1,0 +1,51 @@
+---
+title: "Canadian Federation of Medical Students"
+---
+
+<!DOCTYPE html>
+
+
+<!--[if IE 8 ]> <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9"> <![endif]-->
+<head>
+	{% include head.html %}
+
+	<!--Page Specific Stylesheet-->
+	<link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+<body ng-app="authApp" ng-controller="AuthController">
+	<div id="home-header">
+		{% include nav.html %}
+
+		<!--Hide the non-inverted logo and invert the top bar colours-->
+		<script type="text/javascript">
+			document.querySelector( "#top-bar" ).classList.toggle("invert");
+			document.querySelector( "#logo" ).classList.toggle("hidden");
+		</script>
+
+		<div class="content">
+			<div id="home-header__title">{{ site.data.values.home_title }}</div>
+			<div id="home-header__subtitle">
+				{{ site.data.values.home_description }}
+			</div>
+		</div>
+	</div>
+
+	<div class="content content--text">
+		<div id="recent-news">
+			<h1><strong>Recent News</strong></h1>
+			<div class="button"><a href="news/archives/">See All Articles</a></div>
+			<div id="news-list">
+				{% for post in site.posts limit:3 %}
+					<div class="news-list__date">{{ post.date | date: '%b %d' }}</div>
+					<li class="recent-news__list-item">
+						<div class="news-list__link"><a href="{{ post.url }}">{{ post.title }}</a></div>
+						<div class="news-list__desc">{{ post.description }}</div>
+					</li>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	{% include footer.html %}
+</body>
+</html>

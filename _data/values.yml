@@ -1,0 +1,10 @@
+site_title: "Site Title"
+site_desc: "Site Description"
+site_keywords: "Example, example2, example3"
+site_author: "Kevan Lu"
+
+home_title: "Home Page Title"
+home_description: "Description for Home Page"
+
+app_name: "APP"
+app_image_url: "image_url"

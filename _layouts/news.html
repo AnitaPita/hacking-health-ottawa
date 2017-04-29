@@ -1,0 +1,49 @@
+---
+---
+
+<!DOCTYPE html>
+
+
+<!--[if IE 8 ]> <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9"> <![endif]-->
+<head>
+	{% include head.html %}
+
+	<!--Page Specific Stylesheet-->
+	<link rel="stylesheet" href="/stylesheets/news.css">
+</head>
+<body ng-app="authApp" ng-controller="AuthController">
+	{% include nav.html %}
+	
+	<!--Page Specific Formatting-->
+	<script type="text/javascript">
+		document.querySelector( "#logo-invert" ).classList.toggle("hidden");
+		document.querySelector( "#news" ).classList.toggle("active");
+	</script>
+
+	<div class="content">
+		<!-- News Article -->
+        <div id="title">{{ page.title }}</div>
+        <info datetime="{{ page.date | date: "%Y-%m-%d" }}">
+        </info>
+    	<div id="date">{{ page.date | date: "%B %d, %Y" }}</div>
+        <div id="body">
+	        {{ content }}
+        </div>
+	</div>
+	    <!-- Other News -->
+        <div id="other-news">
+			<h1>Other News</h1>
+			<div id="other-news-list">
+				{% for post in site.posts limit:5 %}
+					<div class="news-date">{{ post.date | date: '%b %d' }}</div>
+					<li>
+						<div class="news-link"><a href="{{ post.url }}">{{ post.title }}</a></div>
+					</li>
+				{% endfor %}
+			</div>
+		</div>
+	{% include footer.html %}
+</body>
+</html>
+

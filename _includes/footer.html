@@ -1,0 +1,59 @@
+<div id="footer">
+	<div class="content footer--content">
+		<div class="footer__col">
+			<h2>Contact us <span style="opacity:0.3">:</span></h2>
+			<ul>
+				<li>Kevan Lu</li>
+				<li>Address here</li>
+				<li>General inquiries</li>
+			</ul>
+		</div>
+		<div class="footer__col">
+			<h2>
+				Find us on <span style="opacity:0.3">:</span>
+			</h2>
+			<ul>
+				<li><a href="">Facebook</a></li>
+				<li><a href="">Twitter</a></li>
+			</ul>
+			<li>
+				Copyright <script>document.write((new Date()).getFullYear())</script> {{ site.data.values.app_name }}. Developed by {{ site.data.values.site_author }}
+			</li>		
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	window.sr = ScrollReveal();
+	sr.reveal('.animate', { duration: 500, distance: '5px', scale: 1 } );
+
+	document.querySelector( "#top-bar__hamburger-toggle" ).addEventListener( "click", function() {
+		this.classList.toggle( "active" );
+		document.querySelector("#nav").classList.toggle("active");
+		sr.reveal('#nav', {distance: '0px'});
+	});
+</script>
+
+<!-- Modal Dialogs -->
+<script src="/js/vex.combined.min.js"></script>
+<script>vex.defaultOptions.className = 'vex-theme-default';</script>
+<link rel="stylesheet" href="/stylesheets/vex.css" />
+<link rel="stylesheet" href="/stylesheets/vex-theme-default.css" />
+<script>
+//Login Modal Dialog
+$('.login-modal').click(function(){
+	if (isSignedIn()){
+		toggleSignIn();
+	}
+	else {
+	    vex.dialog.open({
+	        message: '<h3><strong>Log in to {{ site.data.values.app_name }}</strong></h3>',
+	        input: "<div class='vex-custom-field-wrapper'><label for='email'>EMAIL ADDRESS</label><div class='vex-custom-input-wrapper'><input name='email' id='login-email' type='email' placeholder='Enter your email' /></div></div><div class='vex-custom-field-wrapper'><label for='password'>PASSWORD</label><div class='vex-custom-input-wrapper'><input id='login-password' name='password' type='password' value=''/></div><div id='new-account-link'><a href='/new-account.html'>Create a New Account</a></div><div id='forgot-password'><a href='/forgot-password.html'>Forgot your Password?</a></div></div>",
+	        callback: function(data) {
+	        	if (data != false){
+		        	toggleSignIn ();
+		        }
+	        }
+	    });
+	}
+});
+</script>

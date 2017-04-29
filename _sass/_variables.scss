@@ -1,0 +1,79 @@
+@font-face {
+	font-family: "Proxima Nova";
+	src: url("../fonts/ProximaNovaRegular.otf") format("opentype");
+}
+@font-face {
+	font-family: "Proxima Nova";
+	font-weight: bold;
+	src: url("../fonts/ProximaNovaBold.otf") format("opentype");
+}
+@font-face {
+	font-family: "Source Serif Pro";
+	src: url("../fonts/SourceSerifPro-Regular.otf") format("opentype");
+}
+@font-face {
+	font-family: "Source Serif Pro";
+	font-weight: bold;
+	src: url("../fonts/SourceSerifPro-Bold.otf") format("opentype");
+}
+
+$header: "Circular", Helvetica, Arial, sans-serif;
+$sans-serif: "Proxima Nova", Helvetica, Arial, sans-serif;
+$serif: "Source Serif Pro", Georgia, serif;
+
+$accent: #BB0A21;
+$dark: #222222;
+$darker: #111111;
+$neutral: #777777;
+$bright: #BBBBBB;
+$brighter: #F7F7F7;
+
+$content-width: 1000px;
+
+/* #Inherited Classes
+––––––––––––––––––––––––––––––––––––––––*/
+
+.content {
+	margin: 0 auto;
+	width: $content-width;
+	max-width:calc(100% - 40px);
+	padding: 0px 20px 0px 20px;
+}
+.content--text {
+	padding: 40px 20px 40px 20px;
+}
+@media only screen and (max-width: 767px) {
+	max-width:calc(100% - 30px);
+	padding: 0 15px 0 15px;
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+}
+@media only screen and (max-width: 480px) {
+}
+
+.button {
+	padding-top:10px;
+	padding-bottom:20px;
+	a{
+		font-size:18px;
+		color:$neutral;
+		border:2px solid $neutral;
+		border-radius:4px;
+		padding: 4px 10px 4px 10px;
+		font-family:$sans-serif;
+	}
+	a:after{
+		content:"→";
+		padding-left:8px;
+		vertical-align:bottom;
+		font-size:28px;
+	}
+	a:hover{
+		border:2px solid $bright;
+		color:$bright;
+	}
+}
+.flex-wrapper {
+	display:flex;
+}
+

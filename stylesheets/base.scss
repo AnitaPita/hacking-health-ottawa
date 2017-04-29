@@ -1,0 +1,321 @@
+---
+---
+
+@import 'variables';
+
+/* #Mobile & Non-mobile elements
+––––––––––––––––––––––––––––––––––––––––*/
+	.nonmobile{display:block;}
+	.mobile{display:none;}
+
+/* #Reset & Basics (Inspired by E. Meyers)
+––––––––––––––––––––––––––––––––––––––––*/
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		word-wrap:break-word;
+		vertical-align: baseline; }
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block; }
+	body {
+		line-height: 1; }
+	ol, ul {
+		list-style: none; }
+	blockquote, q {
+		quotes: none; }
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none; }
+	table {
+		border-collapse: collapse;
+		border-spacing: 0; }
+
+/* #Basic Styles
+––––––––––––––––––––––––––––––––––––––––*/
+	body {
+		font: 1em $sans-serif;
+		color: $dark;
+		background-color:white;
+		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+		-webkit-text-size-adjust: 100%;
+		line-height: 1.6em;
+	}
+
+/* #Typography
+––––––––––––––––––––––––––––––––––––––––*/
+	h1, h2, h3, h4, h5, h6{
+		color: $neutral;
+		font-weight: normal;
+		font-family: $header;
+		line-height:1.2em;
+		padding-bottom:10px;
+		widows:3;
+		padding-top:3px;
+	} 
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit;}
+	h1 { font-size: 1.8em; } 
+	h2 { font-size: 1.6em; } 
+	h3 { font-size: 1.3em; } 
+	h4 { font-size: 1.2em; } 
+	h5 { font-size: 1em; } 
+	h6 { font-size: 0.9em; } 
+
+	p { margin: 0 0 20px 0; }
+	p img { margin: 0; }
+
+	b { font-weight:bold; }
+	em { font-style:italic; }
+	strong { font-weight:bold; }
+	i { font-style:italic; }
+	small { font-size: 80%; }
+
+	blockquote { 
+		background:$brighter;
+		padding:25px 40px 10px 40px;
+		margin-top:30px;
+		margin-bottom:30px;
+	}
+	blockquote p, blockquote li {
+		font-family: $sans-serif;
+		color:$dark;
+	}
+	hr { border: solid $brighter; border-width: 2px 0 0; clear: both; margin: 0px 0 20px; height: 0; }
+	img {width:100%}
+	img.right {width:40%; float:right; padding-left:20px; padding-bottom:15px;}
+
+/* #Links
+––––––––––––––––––––––––––––––––––––––––*/
+	a, a:visited {
+		color:$neutral; text-decoration:none; outline: 0;
+		transition: all 0.1s linear;
+		border-bottom:1px solid rgba(0,0,0,0.1);
+	}
+	a:hover, a:focus {
+		color:$accent;
+	}
+	p a, p a:visited { line-height: inherit; }
+	
+/* #Tables & Miscellaneous
+––––––––––––––––––––––––––––––––––––––––*/
+	table{text-align:left; margin-top:15px; margin-bottom:25px; width:100%;}
+	th {
+		border-bottom:1px solid #888; padding: 0px 25px 5px 0px;
+		font-family: $sans-serif;
+		font-weight:bold;
+		font-size:1.2em;
+	}
+	tr {border-bottom:1px solid #CCC; padding:10px 4px 8px 4px;}
+	td {
+		text-align:center; padding:10px 10px 7px 0px; line-height:1.3em;
+		color:$neutral;
+		font-size:1.2em;
+	}
+	td li {margin-left:0px; margin-bottom:2px; line-height:1.2em; text-align: left;	}
+	sub {font-size:0.75em;}
+	sup {font-size:0.75em; vertical-align:top; position:relative; top:-0.5em;}
+
+/* #Lists
+––––––––––––––––––––––––––––––––––––––––*/
+	ul, ol, li, ul.square, ul.circle, ul.disc, ol ol, ol ul {margin-left:20px; }
+	ul, ol { margin-bottom: 0px; padding-bottom:15px;}
+	ul { list-style: disc outside; }
+	ol { list-style: decimal; }
+	ul.square { list-style: square outside; }
+	ul.circle { list-style: circle outside; }
+	ul.disc { list-style: disc outside; }
+	ul ul, ul ol,
+	ol ol, ol ul { margin: 10px 0px 0px 20px; padding-bottom:1px;}
+	ul ul li, ul ol li,
+	ol ol li, ol ul li { margin-bottom: 8px;}
+	li { line-height: 1.6em; margin-bottom: 3px; }
+	ul.large li { line-height: 1.6em; }
+	li p { line-height: 1.6em; font-weight:normal; margin-bottom:8px;}
+
+	.video {max-width:$content-width; width:100%; height:350px; padding-top:10px; padding-bottom:20px;}
+
+@media only screen and (max-width: 1199px){
+
+}
+@media only screen and (max-width: 959px) {
+
+}
+@media only screen and (max-width: 767px) {
+}
+
+/* #Input Fields
+––––––––––––––––––––––––––––––––––––––––*/
+label {
+	font-family:$sans-serif;
+	text-transform:uppercase;
+	font-size:13px;
+	color:$bright;
+	font-weight:bold;
+	letter-spacing: 0.1em;
+	line-height:1.2em;
+}
+.select, .input {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 15px;
+	margin-top:1px;
+}
+
+.select select, .input input {
+	box-sizing: border-box; 
+	font-family:$sans-serif;
+	font-size:15px;
+	display: inline-block;
+	width: 100%;
+	padding: 8px 13px;
+	cursor: pointer;
+	color: $neutral;
+	border: 2px solid $bright;
+	border-radius: 3px;
+	outline: 0;
+	background: white;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.select select::-ms-expand {
+	display: none;
+}
+
+.input input:hover,
+.input input:focus,
+.select select:hover,
+.select select:focus {
+	color: $dark;
+	border:2px solid $neutral;
+}
+
+.input input:disabled,
+.select select:disabled {
+	pointer-events: none;
+	opacity: .5;
+}
+
+.select_arrow {
+	position: absolute;
+	top: 14px;
+	right: 15px;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+	border-width: 8px 5px 0 5px;
+	border-style: solid;
+	border-color: $bright transparent transparent transparent;
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+	border-top-color: $neutral;
+}
+
+.select select:disabled ~ .select_arrow {
+	border-top-color: $bright;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+	margin-top:2px;
+	margin-bottom:6px;
+    max-width: 80%;
+    font-size: 15px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 6px 13px;
+    text-transform:none;
+    letter-spacing: 0em;
+    border-radius:3px;
+}
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+.inputfile + label {
+    color: $neutral;
+    border: 2px solid $bright;
+    background-color:white;
+    margin-right:15px;
+}
+.inputfile:focus + label,
+.inputfile.has-focus + label,
+.inputfile + label:hover {
+    color: $dark;
+    border: 2px solid $neutral;
+}
+.inputfile:disabled + label,
+.inputfile:disabled + label:hover {
+	color:$bright;
+	border: 2px solid $bright;
+	opacity: 0.7;
+	cursor:default !important;
+}
+.file-link {
+	font-family:$sans-serif;
+	font-size:15px;
+	margin-top:-12px;
+	margin-bottom:6px;
+}
+
+/* #Member and Non-member elements
+––––––––––––––––––––––––––––––––––––––––*/
+.non-members {display:block}
+.members-only {display:none}
+.admin-only {display:none}
+#members {display:none}
+
+/* #Media specific modifications
+––––––––––––––––––––––––––––––––––––––––*/
+
+/* iPad portrait browsing*/
+@media only screen and (max-width: 959px) {
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	blockquote {
+		padding:20px 30px 10px 30px;
+	}
+	ul, ol, li, ul.square, ul.circle, ul.disc, ol ol, ol ul { margin-left:15px; }
+
+	th {font-size:1.2em;}
+	td {font-size:1.2em;}
+}
+
+/* Mobile Landscape */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* Mobile Portrait */
+@media only screen and (max-width: 480px) {
+	blockquote {
+		padding: 15px 20px 5px 20px;
+		li {margin-left:0px;}
+	}
+	img.right {width:100%;}
+}

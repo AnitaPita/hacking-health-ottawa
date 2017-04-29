@@ -1,0 +1,44 @@
+---
+---
+
+@import 'variables';
+
+.content {
+	display:flex;
+	padding-bottom:60px;
+	p {max-width:$content-width;}
+}
+@media only screen and (max-width: 959px) {
+	.content {
+		flex-wrap:wrap;
+		padding-top:10px;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.content {padding-bottom:30px;}
+}
+
+/* #Members Main Page
+––––––––––––––––––––––––––––––––––––––––*/
+#account-details {
+}
+
+/* iPad portrait browsing*/
+@media only screen and (max-width: 959px) {
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	#account-details {
+		max-width:300px;
+		width:100%;
+		float:none;
+		blockquote {margin-left:0px;}
+	}
+}
+
+/* Mobile Landscape */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* Mobile Portrait */
+@media only screen and (max-width: 480px) {}

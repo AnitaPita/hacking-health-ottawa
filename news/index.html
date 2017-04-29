@@ -1,0 +1,56 @@
+---
+title: "News"
+---
+
+<!DOCTYPE html>
+
+
+<!--[if IE 8 ]> <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9"> <![endif]-->
+<head>
+	{% include head.html %}
+
+	<!--Page Specific Stylesheet-->
+	<link rel="stylesheet" href="/stylesheets/news.css">
+</head>
+<body ng-app="authApp" ng-controller="AuthController">
+	{% include nav.html %}
+	
+	<!--Page Specific Formatting-->
+	<script type="text/javascript">
+		document.querySelector( "#logo-invert" ).classList.toggle("hidden");
+		document.querySelector( "#news" ).classList.toggle("active");
+	</script>
+
+	<!-- Newest Article -->
+	<div id="newest-article">
+		<div class="content content--text">
+			{% for post in site.posts limit:1 %}
+				<div id="newest-article__byline">Latest Article</div>
+				<div id="newest-article__title"><h1><a href="{{ post.url }}">{{ post.title }}</a></h1></div>
+				<div id="newest-article__description">
+					<span id="newest-article__date">{{ post.date | date: "%B %d, %Y" }}</span>
+					{{ post.description }}
+				</div>
+				<div class="button"><a href="{{ post.url }}">Read More</a></div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="content content--text">
+		<div id="older-news" class="column">
+			<h1>Older Articles<i id="news-icon" class="fa fa-folder-open-o"></i></h1>
+			<div id="older-news__list">
+				{% for post in site.posts limit:5 %}
+					<div class="news-date">{{ post.date | date: '%b %d' }}</div>
+					<li>
+						<div class="news-link"><a href="{{ post.url }}">{{ post.title }}</a></div>
+						<div class="news-desc">{{ post.description }}</div>
+					</li>
+				{% endfor %}
+				<div class="button"><a href="archives/">See All Articles</a></div>
+			</div>
+		</div>
+	</div>
+	{% include footer.html %}
+</body>
+</html>
