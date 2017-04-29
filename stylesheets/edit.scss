@@ -3,7 +3,13 @@
 
 @import 'variables';
 
-#save-button, #publish-button {
+#editor-toolbar {
+	padding-top:10px;
+}
+#document-name {
+	margin-top:-10px;
+}
+#editor-toolbar__save-button, #editor-toolbar__publish-button {
 	a {
 		font-size:18px;
 		font-weight:bold;
@@ -16,13 +22,17 @@
 		box-shadow: 0px 0px 7px rgba(0, 0, 0, 0);
 	}
 }
-#save-button a:hover, #publish-button a:hover {
+#editor-toolbar__save-button a:hover, #editor-toolbar__publish-button a:hover {
 	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
 	transition: box-shadow 0.3s linear;
 	cursor:pointer;
+	justify-content: flex-end;
 }
-#save-button {
+#editor-toolbar__save-button {
 	padding-right:10px;
+}
+.flex-wrapper--editor {
+	justify-content:space-between;
 }
 
 @media only screen and (max-width: 1199px){}

@@ -20,7 +20,7 @@
 </div>
 <script type="text/javascript">
 	window.sr = ScrollReveal();
-	sr.reveal('.animate', { duration: 500, distance: '5px', scale: 1 } );
+	sr.reveal('.animate', { duration: 700, distance: '5px', scale: 1 } );
 
 	document.querySelector( "#top-bar__hamburger-toggle" ).addEventListener( "click", function() {
 		this.classList.toggle( "active" );
@@ -62,12 +62,11 @@ $('.create-doc-modal').click(function(){
     vex.dialog.open({
         message: '<h3><strong>Create a new document</strong></h3>',
         input: "<div class='vex-custom-field-wrapper new-doc'><label for='doc__name'>DOCUMENT NAME</label><div class='vex-custom-input-wrapper'><input name='doc__name' id='new-doc__name' type='text' placeholder='My awesome document' /></div></div>",
-
         callback: function(data) {
         	if (data != false){
 				//Converts the filename to a URL safe format.
 				var uri = encodeURI(data.doc__name);
-				window.location = "/docs?filename=" + uri;	 
+				window.location = "/edit.html?filename=" + uri;	 
 	       }
         }
     });

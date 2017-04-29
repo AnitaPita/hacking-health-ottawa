@@ -85,7 +85,7 @@
 }
 .nav__item {
 	display:inline-block;
-	margin:0;
+	margin:0 3px 0 0;
 	a{
 		font-family: $sans-serif;
 		font-weight:bold;
@@ -204,6 +204,16 @@
 #create a:hover{
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 	transition: box-shadow 0.2s linear;
+}
+
+//Member Button formatting.
+#member-name {
+	margin-left:5px;
+	background-color:#DDD;
+	color:$neutral !important;
+}
+#member-name:hover {
+	background-color:#CCC !important;
 }
 
 /* #Media specific modifications

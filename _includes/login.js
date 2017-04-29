@@ -10,6 +10,11 @@ function showAlert (title, desc){
 	return vex.dialog.alert('<h3><strong>' + title + '</strong></h3><p>' + desc + '</p>');
 }
 
+function saveDocument (filename, docHTML){
+	console.log(filename);
+	console.log(docHTML);
+}
+
 /**
  * Gets a URL parameter sent with GET
  */
@@ -162,8 +167,13 @@ function initApp() {
 
 		if (user) {
 			// User is signed in.
-			document.getElementById('login-button').textContent = 'Logout';
-			document.getElementById('members').style.display = 'inline-block';
+			document.getElementById('login-button').style.display = 'none';
+			document.getElementById('member').style.display = 'inline-block';
+			firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+				var firstName = snapshot.val().firstName;
+				var lastName = snapshot.val().lastName;
+				document.getElementById('member-name').textContent = firstName + ' ' + lastName + ' ▼';
+			});
 			document.getElementById('create').style.display = 'inline-block';
 
 			//Show all member-only elements
@@ -185,8 +195,8 @@ function initApp() {
 		} 
 		else {
 			// User is signed out.
-			document.getElementById('login-button').textContent = 'Login';
-			document.getElementById('members').style.display = 'none';
+			document.getElementById('login-button').style.display = 'inline';
+			document.getElementById('member').style.display = 'none';
 			document.getElementById('create').style.display = 'none';
 
 			//Hide all member-only elements
@@ -204,8 +214,7 @@ function initApp() {
 		}
 
 		//Shows Member Account Information on the Members Page
-		if (window.location.pathname == '/members/' 
-			|| window.location.pathname == '/resources/md-leadership-awards-application.html'){
+		if (window.location.pathname == '/account.html'){
 			if (user) {
 				firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
 					var firstName = snapshot.val().firstName;
