@@ -52,4 +52,18 @@ $('.login-modal').click(function(){
 	    });
 	}
 });
+//Create Document Modal Dialog
+$('.create-doc-modal').click(function(){
+	//Make sure the user is signed in first.
+	if (!isSignedIn()){return;}
+    vex.dialog.open({
+        message: '<h3><strong>Log in to {{ site.data.values.app_name }}</strong></h3>',
+        input: "<div class='vex-custom-field-wrapper'><label for='email'>EMAIL ADDRESS</label><div class='vex-custom-input-wrapper'><input name='email' id='login-email' type='email' placeholder='Enter your email' /></div></div><div class='vex-custom-field-wrapper'><label for='password'>PASSWORD</label><div class='vex-custom-input-wrapper'><input id='login-password' name='password' type='password' value=''/></div><div id='new-account-link'><a href='/new-account.html'>Create a New Account</a></div><div id='forgot-password'><a href='/forgot-password.html'>Forgot your Password?</a></div></div>",
+        callback: function(data) {
+        	if (data != false){
+	        	toggleSignIn ();
+	        }
+        }
+    });
+});
 </script>
