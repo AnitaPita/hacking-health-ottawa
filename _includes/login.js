@@ -6,6 +6,10 @@ function isSignedIn () {
 	return (firebase.auth().currentUser);
 }
 
+function showAlert (title, desc){
+	return vex.dialog.alert('<h3><strong>' + title + '</strong></h3><p>' + desc + '</p>');
+}
+
 /**
  * Handles the sign in button press.
  */
@@ -24,9 +28,9 @@ function toggleSignIn() {
 			var errorMessage = error.message;
 
 			if (errorCode === 'auth/wrong-password')
-				vex.dialog.alert('<h3><strong>Wrong Password</strong></h3><p>You have entered an incorrect password.</p>')
+				showAlert ('Wrong Password', 'You have entered an incorrect password.');
 			else
-				vex.dialog.alert('<h3><strong>Something went wrong</strong></h3><p>' + errorMessage + '</p>');
+				showAlert ('Something went wrong', errorMessage);
 			document.getElementById('login-button').disabled = false;
 		});
 	}
@@ -41,15 +45,15 @@ function handleSignUp() {
 	var password = document.getElementById('account-password-first').value;
 	var passwordAgain = document.getElementById('account-password-second').value;
 	if (password !== passwordAgain){
-		vex.dialog.alert('<h3><strong>Passwords do not Match</strong></h3><p>Please try again.</p>');
+		showAlert ('Passwords do not Match', 'Please try again.')
 		return;
 	}
     if (email.length < 4) {
-    	vex.dialog.alert('<h3><strong>Enter an Email Address</strong></h3><p>Please enter an email address.</p>');
+    	showAlert ('Enter an Email Address', 'Please enter an email address.')
         return;
     }
 	if (password.length < 7) {
-		vex.dialog.alert('<h3><strong>Weak Password</strong></h3><p>Please ensure that your password is at least 7 characters.</p>')
+		showAlert ('Weak Password', 'Please ensure that your password is at least 7 characters.')
 		return;
 	}
 
@@ -59,11 +63,11 @@ function handleSignUp() {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		if (errorCode == 'auth/weak-password')
-			vex.dialog.alert('<h3><strong>Weak Password</strong></h3><p>The password is too weak.</p>')
+			showAlert ('Weak Password', 'The password is too weak');
 		else
-			vex.dialog.alert('<h3><strong>Something went wrong</strong></h3><p>' + errorMessage + '</p>');
+			showAlert ('Something went wrong', errorMessage);
 	});
-	vex.dialog.alert('<h3><strong>Account Successfully Created</strong></h3><p>Your account has successfully been created! You are now logged in. Welcome to the CFMS!</p>')
+	showAlert ('Account Successfully Created', 'Your account has successfully been created! You are now logged in. We hope you enjoy using {{ site.data.values.app_name }}')
 	accountJustCreated = true;
 }
 
@@ -71,16 +75,16 @@ function sendPasswordReset() {
 	var email = document.getElementById('reset-email-address').value;
 	firebase.auth().sendPasswordResetEmail(email).then(function() {
 		// Password Reset Email Sent!
-		vex.dialog.alert('<h3><strong>Password Reset Email Sent</strong></h3><p>Your Password Reset Email has been sent. Please check your inbox.</p>')
+		showAlert ('Password Reset Email Sent', 'Your Password Reset Email has been sent. Please check your inbox.');
 	}).catch(function(error) {
 		// Handle Errors here.
 		var errorCode = error.code;
 		var errorMessage = error.message;
 
 		if (errorCode == 'auth/invalid-email')
-			vex.dialog.alert('<h3><strong>Invalid Email</strong></h3><p>The email address that you entered is invalid.</p>')
+			showAlert ('Invalid Email', 'The email address that you entered is invalid.')
 		else if (errorCode == 'auth/user-not-found')
-			vex.dialog.alert('<h3><strong>User Not Found</strong></h3><p>The email address that you entered does not match a user on our system.</p>')
+			showAlert ('User Not Found', 'The email address that you entered does not match a user on our system.')
 	});
 }
 
@@ -96,8 +100,6 @@ function initApp() {
 		if (accountJustCreated){
 			var firstName = document.getElementById('account-first-name').value;
 			var lastName = document.getElementById('account-last-name').value;
-			var medicalSchool = document.getElementById('account-medical-school').value;
-			var graduationYear = document.getElementById('account-graduation-year').value;
 			firebase.database().ref('users/' + user.uid).set({
 			    firstName: firstName,
 			    lastName: lastName,
@@ -108,7 +110,8 @@ function initApp() {
 		if (user) {
 			// User is signed in.
 			document.getElementById('login-button').textContent = 'Logout';
-			//document.getElementById('members').style.display = 'inline';
+			document.getElementById('members').style.display = 'inline-block';
+			document.getElementById('create').style.display = 'inline-block';
 
 			//Show all member-only elements
 			var memberElements = document.getElementsByClassName('members-only'), i;
@@ -130,7 +133,8 @@ function initApp() {
 		else {
 			// User is signed out.
 			document.getElementById('login-button').textContent = 'Login';
-			//document.getElementById('members').style.display = 'none';
+			document.getElementById('members').style.display = 'none';
+			document.getElementById('create').style.display = 'none';
 
 			//Hide all member-only elements
 			var memberElements = document.getElementsByClassName('members-only'), i;

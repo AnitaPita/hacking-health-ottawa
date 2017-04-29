@@ -8,8 +8,8 @@ defaults:
       layout: "news"
 
 #Number of pages in each archive page.
-paginate: 10
-paginate_path: "news/archives/:num/"
+paginate: 6
+paginate_path: "news/:num/"
 
 gems: [jekyll-paginate]
 rdiscount:

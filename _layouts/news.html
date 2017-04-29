@@ -21,9 +21,9 @@
 		document.querySelector( "#news" ).classList.toggle("active");
 	</script>
 
-	<div class="content">
+	<div class="content content--text">
 		<!-- News Article -->
-        <div id="title">{{ page.title }}</div>
+        <div id="title"><h1>{{ page.title }}</h1></div>
         <info datetime="{{ page.date | date: "%Y-%m-%d" }}">
         </info>
     	<div id="date">{{ page.date | date: "%B %d, %Y" }}</div>
@@ -31,18 +31,20 @@
 	        {{ content }}
         </div>
 	</div>
-	    <!-- Other News -->
-        <div id="other-news">
+    <!-- Other News -->
+    <div id="other-news">
+        <div class="content">
 			<h1>Other News</h1>
-			<div id="other-news-list">
+			<div id="other-news__list">
 				{% for post in site.posts limit:5 %}
-					<div class="news-date">{{ post.date | date: '%b %d' }}</div>
+					<div class="other-news__date">{{ post.date | date: '%b %d' }}</div>
 					<li>
-						<div class="news-link"><a href="{{ post.url }}">{{ post.title }}</a></div>
+						<div class="other-news__link"><a href="{{ post.url }}">{{ post.title }}</a></div>
 					</li>
 				{% endfor %}
 			</div>
 		</div>
+	</div>
 	{% include footer.html %}
 </body>
 </html>
