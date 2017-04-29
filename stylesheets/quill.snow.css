@@ -36,7 +36,7 @@
   height: 100%;
   outline: none;
   overflow-y: auto;
-  padding: 12px 15px;
+  padding: 20px 0 40px 0;
   tab-size: 4;
   -moz-tab-size: 4;
   text-align: left;
@@ -396,9 +396,9 @@
   cursor: pointer;
   display: inline-block;
   float: left;
-  height: 24px;
+  height: 29px;
   padding: 3px 5px;
-  width: 28px;
+  width: 33px;
 }
 .ql-snow.ql-toolbar button svg,
 .ql-snow .ql-toolbar button svg {
@@ -662,7 +662,7 @@
 }
 .ql-snow .ql-color-picker,
 .ql-snow .ql-icon-picker {
-  width: 28px;
+  width: 31px;
 }
 .ql-snow .ql-color-picker .ql-picker-label,
 .ql-snow .ql-icon-picker .ql-picker-label {
@@ -713,6 +713,7 @@
 .ql-snow .ql-picker.ql-header .ql-picker-label::before,
 .ql-snow .ql-picker.ql-header .ql-picker-item::before {
   content: 'Normal';
+    font-size:1.1em;
 }
 .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
 .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
@@ -812,10 +813,11 @@
   background-color: #000;
 }
 .ql-toolbar.ql-snow {
-  border: 1px solid #ccc;
+  padding-bottom:20px;
   box-sizing: border-box;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  padding: 8px;
+  /*padding: 8px;*/
+  padding:none;
 }
 .ql-toolbar.ql-snow .ql-formats {
   margin-right: 15px;
@@ -907,5 +909,5 @@
   color: #06c;
 }
 .ql-container.ql-snow {
-  border: 1px solid #ccc;
+  /*border: 1px solid #ccc;*/
 }

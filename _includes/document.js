@@ -12,17 +12,22 @@ function createNewDocument(filename) {
 	console.log("Creating document.");
 }
 
-function editDocument(docID) {
+function editDocument() {
+	//Loads a previously edited document
 	if(!isSignedIn()){return;}
-	var userDocs = firebase.database().ref("private/"+getUserID());
-	userDocs.equalTo(docID).once('value').then(function(snapshot) {
+	var docID = getURLParam().key;
+
+	//If the docID doesn't exist, it's a new document, so we return.
+	if (!docID)
+		return;
+
+	var userDocs = firebase.database().ref("private/" + getUserID() + "/documents/");
+	userDocs.orderByKey().equalTo(docID).on("child_added" ,function(snapshot) {
 		var title = snapshot.val().documentName;
     	var ref = snapshot.val().documentRef;
-  });
-	return {
-		documentName: title,
-		documentRef: ref
-	}
+		document.getElementById("document-name").innerHTML = title;
+		document.getElementById("editor").innerHTML = ref;
+	});
 }
 
 function saveDocument(filename) {

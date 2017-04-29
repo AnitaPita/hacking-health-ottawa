@@ -18,7 +18,7 @@
 	}
 	a {
 		font-family: $header;
-		font-size:24px;
+		font-size:1.4em;
 		border-bottom:none;
 		font-weight:bold;
 		color:white;
@@ -96,7 +96,7 @@
 		padding:7px 7px 6px 7px;
 	}
 	a:hover{
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: rgba(0, 0, 0, 0.3);
 		color:white;
 	}
 }
@@ -177,7 +177,6 @@
 	font-weight:bold;
 }
 #forgot-password a{
-	font-size:16px;
 	color:$bright;
 	font-weight:bold;
 }
@@ -243,16 +242,16 @@
 	}
 	.nav__item {
 		display:block;
+		width:100%;
 		margin-bottom:8px;
 		a{ 
 			padding-left:0px;
 			color:#DDD; 
-			font-size:18px;
 		}
-		a:hover{ background-color: rgba(0, 0, 0, 0); }
+		a:hover{ background:none; }
 	}
 	//Submenu Formatting
-	.nav__sub-menu ul {
+	#top-bar .nav__sub-menu ul, #top-bar.invert .nav__sub-menu ul {
 		display:block;
 		position:relative;
 		background:none;
@@ -280,6 +279,10 @@
 	}
 	#create {
 		padding:7px 0 7px 0;
+	}
+	#member-name, #member-name:hover {
+		background:none !important;
+		margin-left:0px;
 	}
 	#create a, #login-button {
 		margin-left:0px;

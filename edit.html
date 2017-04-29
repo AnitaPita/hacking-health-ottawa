@@ -47,7 +47,17 @@ title: "Document"
 	<!-- Initialize Quill editor -->
 	<script>
 	  var quill = new Quill('#editor', {
-	    theme: 'snow'
+	    theme: 'snow',
+		modules: {
+		  	toolbar: [
+		    	[{ header: [1, 2, 3, false] }],
+		    	['bold', 'italic', 'underline'],
+		    	[{ 'list': 'ordered'}, { 'list': 'bullet' }],
+		    	[{ 'script': 'sub'}, { 'script': 'super' }, { 'align': [] }],
+		    	[{ 'indent': '-1'}, { 'indent': '+1' }],
+		    	['blockquote', 'image', 'link']
+		    ]
+		},
 	  });
 	</script>
 	{% include footer.html %}

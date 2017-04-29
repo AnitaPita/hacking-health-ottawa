@@ -61,7 +61,7 @@ $('.create-doc-modal').click(function(){
     vex.dialog.buttons.YES.text = 'Next';
     vex.dialog.open({
         message: '<h3><strong>Create a new document</strong></h3>',
-        input: "<div class='vex-custom-field-wrapper new-doc'><label for='doc__name'>DOCUMENT NAME</label><div class='vex-custom-input-wrapper'><input name='doc__name' id='new-doc__name' type='text' placeholder='My awesome document' /></div></div>",
+        input: "<div class='vex-custom-field-wrapper new-doc'><label for='doc__name'>DOCUMENT NAME</label><div class='vex-custom-input-wrapper'><input name='doc__name' id='new-doc__name' type='text' placeholder='My awesome document'/></div></div>",
         callback: function(data) {
         	if (data != false){
 				//Converts the filename to a URL safe format.
