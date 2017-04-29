@@ -1,0 +1,33 @@
+---
+title: "Documents"
+---
+
+<!DOCTYPE html>
+
+
+<!--[if IE 8 ]> <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9"> <![endif]-->
+<head>
+	{% include head.html %}
+</head>
+<body ng-app="authApp" ng-controller="AuthController">
+	{% include nav.html %}
+	
+	<!--Page Specific Formatting-->
+	<script type="text/javascript">
+		document.querySelector( "#logo-invert" ).classList.toggle("hidden");
+	</script>
+
+	<div class="content content--text">
+		<h1>My Documents</h1>
+		<hr>
+		<div id="member-documents">
+		</div>
+	</div>
+
+	<script>
+		getUserDocuments("member-documents");
+	</script>
+	{% include footer.html %}
+</body>
+</html>

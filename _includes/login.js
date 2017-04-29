@@ -10,11 +10,6 @@ function showAlert (title, desc){
 	return vex.dialog.alert('<h3><strong>' + title + '</strong></h3><p>' + desc + '</p>');
 }
 
-function saveDocument (filename, docHTML){
-	console.log(filename);
-	console.log(docHTML);
-}
-
 /**
  * Gets a URL parameter sent with GET
  */
@@ -233,6 +228,28 @@ function initApp() {
 			}
 		}
 		
+	});
+}
+
+function getUserDocuments (divId) {
+	//Does nothing if not logged in
+	if (!firebase.auth().currentUser)
+		return;
+
+	var mergedHTML = '';
+	var uid = firebase.auth().currentUser.uid;
+	console.log ('private/' + uid + '/documents/');
+
+	//Iterates through all saved documents
+	var query = firebase.database().ref('private/' + uid + '/documents/').orderByKey();
+	query.once("value").then(function(snapshot) {
+		var noDocuments = 0;
+		snapshot.forEach(function(childSnapshot){
+			noDocuments++;
+			console.log (childSnapshot.val().docName);
+			console.log (childSnapshot.val().documentRef);
+			//console.log (childSnapshot.val().dateModified);
+		});
 	});
 }
 
