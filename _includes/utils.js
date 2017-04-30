@@ -1,22 +1,13 @@
 <script type="text/javascript">
-	
-	// var prependedEditorHTML  = "<div class='ql-editor' contenteditable='true'>";
-	// var postpendedEditorHTML = "</div><div class='ql-clipboard' contenteditable='true' tabindex='-1'></div><div class='ql-tooltip ql-hidden'><a class='ql-preview' target='_blank' href='about:blank'></a><input type='text' data-formula='e=mc^2' data-link='https://quilljs.com' data-video='Embed URL'><a class='ql-action'></a><a class='ql-remove'></a></div>'";
-
-	// /**
-	//  * Adds the extra HTML needed for Quill's editing capabilities
-	//  */
-	// function getEditableHTML (HTML) {
-	// 	return prependedEditorHTML + HTML + postpendedEditorHTML;
-	// }
 
 	function showAlert (title, desc){
 		return vex.dialog.alert('<h3><strong>' + title + '</strong></h3><p>' + desc + '</p>');
 	}
 
-	function encodeURIRFC3986 (str) {  
-	    return encodeURIComponent(str).replace(/[!'()*]/g, escape);  
-	}
+	String.prototype.replaceAll = function(search, replacement) {
+	    var target = this;
+	    return target.replace(new RegExp(search, 'g'), replacement);
+	};
 
 	/**
 	 * Gets a URL parameter sent with GET

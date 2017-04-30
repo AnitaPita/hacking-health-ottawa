@@ -4,7 +4,7 @@
 			<h2>Contact us <span style="opacity:0.3">:</span></h2>
 			<ul>
 				<li><a href="http://kevan.lu">Kevan Lu</a></li>
-				<li><a href="">Anita Popescu</a></li>
+				<li><a href="http://anitapopescu.me/">Anita Popescu</a></li>
 			</ul>
 		</div>
 		<div class="footer__col">
@@ -65,8 +65,9 @@ $('.create-doc-modal').click(function(){
         callback: function(data) {
         	if (data != false){
 				//Converts the filename to a URL safe format.
-				var uri = encodeURIRFC3986(data.doc__name);
-				window.location = "/edit.html?filename=" + uri;	 
+				var encodedFilename = encodeURI(data.doc__name);
+				encodedFileName = encodedFilename.replaceAll("'", "");
+				window.location = "/edit.html?filename=" + encodedFileName;	 
 	       }
         }
     });

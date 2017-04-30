@@ -22,19 +22,21 @@ title: "Document"
 
 	<div class="content content--text">
 		<div><h1 id="document-name"></h1></div>
-		<script>
-			//Decodes the filename URI from the URL
-			var decoded = decodeURI (getURLParam().filename);
-			//If the filename exists
-			if (decoded)
-				document.getElementById("document-name").innerHTML = decoded;
-			else
-				document.getElementById("document-name").innerHTML = "Untitled Document";
-		</script>
+		<div id="document-author"></div>
+		<div id="date-modified"></div>
 		<hr>
 		<div id="viewer">
 		</div>
 	</div>
+	<script>
+		document.getElementById("document-name").innerHTML = decodeURI (getURLParam().filename);
+		document.getElementById("document-author").innerHTML = decodeURI (getURLParam().author);
+		document.getElementById("date-modified").innerHTML = decodeURI (getURLParam().datemodified);
+		var key = decodeURI (getURLParam().key);
+		firebase.database().ref('/public/' + key).once('value').then(function(snapshot) {
+			document.getElementById('viewer').innerHTML = snapshot.val().documentRef;
+		});
+	</script>
 	{% include footer.html %}
 </body>
 </html>

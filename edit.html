@@ -25,12 +25,12 @@ title: "Document"
 			<div><h1 id="document-name"></h1></div>
 			<div id="editor-toolbar__buttons" class="flex-wrapper">
 				<div id="editor-toolbar__save-button"><a onclick="saveHandler()">Save</a></div>
-				<div id="editor-toolbar__publish-button"><a onclick="publishDocument()">Publish</a></div>
+				<div id="editor-toolbar__publish-button"><a onclick="publishHandler()">Publish</a></div>
 			</div>
 		</div>
 		<script>
 			//Decodes the filename URI from the URL
-			var decoded = decodeURI (getURLParam().filename);
+			var decoded = decodeURI(getURLParam().filename);
 			//If the filename exists
 			if (decoded)
 				document.getElementById("document-name").innerHTML = decoded;
@@ -43,23 +43,6 @@ title: "Document"
 			<p>Start typing your manifesto here...</p>
 		</div>
 	</div>
-
-	<!-- Initialize Quill editor -->
-<!-- 	<script>
-	  var quill = new Quill('#editor', {
-	    theme: 'snow',
-		modules: {
-		  	toolbar: [
-		    	[{ header: [1, 2, 3, false] }],
-		    	['bold', 'italic', 'underline'],
-		    	[{ 'list': 'ordered'}, { 'list': 'bullet' }],
-		    	[{ 'script': 'sub'}, { 'script': 'super' }, { 'align': [] }],
-		    	[{ 'indent': '-1'}, { 'indent': '+1' }],
-		    	['blockquote', 'image', 'link']
-		    ]
-		},
-	  });
-	</script> -->
 	{% include footer.html %}
 </body>
 </html>

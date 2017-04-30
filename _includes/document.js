@@ -119,7 +119,7 @@ function getUserDocuments (divId) {
 			var documentName = childSnapshot.val().documentName;
 			var documentKey = childSnapshot.key;
 			var dateLastModified = childSnapshot.val().dateLastModified;
-			mergedHTML += "<div class='member-documents__document'><div class='member-documents__document-name'><a class='member-document__link' href='/edit.html?filename=" + encodeURIRFC3986(documentName) + "&key=" + documentKey + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div></div>";
+			mergedHTML += "<div class='member-documents__document'><div class='member-documents__document-name'><a class='member-document__link' href='/edit.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div></div>";
 		});
 		document.getElementById(divId).innerHTML = mergedHTML;
 	});

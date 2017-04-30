@@ -195,7 +195,7 @@ function getPublicDocuments (divId) {
 			var documentAuthor = childSnapshot.val().author;
 			var documentKey = childSnapshot.key;
 			var dateLastModified = childSnapshot.val().dateLastModified;
-			mergedHTML += "<div class='public-documents__document'><div class='public-documents__document-name'><a class='public-documents__link' href='/view.html?filename=" + encodeURIRFC3986(documentName) + "&key=" + documentKey + "&author=" + documentAuthor + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div><div class='public-documents__author'>" + documentAuthor + "</div></div>";
+			mergedHTML += "<div class='public-documents__document'><div class='public-documents__document-name'><a class='public-documents__link' href='/view.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "&author=" + encodeURI(documentAuthor) + "&datemodified=" + encodeURI(dateLastModified) + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div><div class='public-documents__author'>" + documentAuthor + "</div></div>";
 		});
 		document.getElementById(divId).innerHTML = mergedHTML;
 	});
