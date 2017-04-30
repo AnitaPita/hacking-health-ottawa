@@ -34,7 +34,7 @@ title: "Document"
 		document.getElementById("date-modified").innerHTML = decodeURI (getURLParam().datemodified);
 		var key = decodeURI (getURLParam().key);
 		firebase.database().ref('/public/' + key).once('value').then(function(snapshot) {
-			document.getElementById('viewer').innerHTML = snapshot.val().documentRef;
+			document.getElementById('viewer').innerHTML = extractQuillContent(snapshot.val().documentRef);
 		});
 	</script>
 	{% include footer.html %}

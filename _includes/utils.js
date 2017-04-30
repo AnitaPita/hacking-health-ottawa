@@ -4,6 +4,12 @@
 		return vex.dialog.alert('<h3><strong>' + title + '</strong></h3><p>' + desc + '</p>');
 	}
 
+	function extractQuillContent(s) {
+		var span= document.createElement('span');
+		span.innerHTML= s;
+		return span.firstChild.innerHTML;
+	};
+    
 	String.prototype.replaceAll = function(search, replacement) {
 	    var target = this;
 	    return target.replace(new RegExp(search, 'g'), replacement);
