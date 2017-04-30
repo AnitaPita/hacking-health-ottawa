@@ -93,8 +93,9 @@ function saveNewDocument(filename) {
 		publishedKey : "",
 	})
 	
-	return newDocRef.key;
+	window.history.pushState(null,null,"/edit.html?filename="+encodeURI(filename)+"&key="+newDocRef.key);
 
+	return newDocRef.key;
 }
 
 function saveHandler (){
