@@ -160,6 +160,11 @@
 .author-title {
 	font-size:1.5em;
 }
+.icon i {
+	font-size:1.1em;
+	padding-right:8px;
+	color:$dark;
+}
 
 @media only screen and (max-width: 959px) {
 	#home-header__graphic{display:none;}
