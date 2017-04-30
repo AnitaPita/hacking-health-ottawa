@@ -2,7 +2,7 @@ site_title: "Hacking Health Ottawa Product"
 site_desc: "Product Prototype for Hacking Health Ottawa 2017"
 site_keywords: "prototype, healthcare, hacking"
 site_author: "<a href='http://kevan.lu'>Kevan Lu</a> and <a href='http://anitapopescu.me/'>Anita Popescu</a>"
-home_title: "Publish medical information with the click of a button"
+home_title: "Publish medical information<br>with the click of a button"
 home_description: "Pub(lish)Med lets you easily share medical resources such as <b>interactive clinical cases</b> or <b>information for patients</b>."
 
 app_name: "Pub(lish)Med"
