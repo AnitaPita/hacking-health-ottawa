@@ -161,10 +161,11 @@ function getPublicDocuments (divId) {
 function publishHandler (){
 	var documentName = document.getElementById('document-name').innerHTML;
 	var key = getURLParam().key;
-	if (!key)
+	if (!key) {
 		console.log("couldn't find private key, creating new document");
 		key = saveNewDocument(documentName);
 		console.log("Key is:" + key);
+	}
 		
 	console.log("handler says: "+documentName);
 	publishDocument (documentName, key);
@@ -188,9 +189,10 @@ function publishDocument(filename, privateKey) {
 	var documentRef = document.getElementById("editor").innerHTML;
 
 	//Create a new published document.
-	console.log(title);
-	console.log(privateKey);
-	userRef.push().set({
+
+	var newDocRef = userRef.push();
+
+	newDocRef.set({
 		documentName : title,
 		documentRef : documentRef,
 		dateLastModified : dlm,
@@ -198,10 +200,15 @@ function publishDocument(filename, privateKey) {
 		isPublished: true,
 		privateKey : privateKey,
 	})
+
+	var savedRef = firebase.database().ref('private').child(uid).child("documents").child(privateKey);
+
+	savedRef.update({
+		isPublished :true,
+		publishedKey : newDocRef.key,
 	});
 
-	
-	//return to home page with a success/fail.
+	});
 }
 
 </script>
