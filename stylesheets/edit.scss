@@ -37,6 +37,14 @@
 .flex-wrapper--editor {
 	justify-content:space-between;
 }
+#editor-toolbar__publish-button.published a {
+	background:#EE8888;
+	color:white;
+}
+#editor-toolbar__publish-button a {
+	background:#88EE88;
+	color:white;
+}
 
 @media only screen and (max-width: 1199px){}
 @media only screen and (min-width:768px) and (max-width: 959px) {}

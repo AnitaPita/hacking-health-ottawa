@@ -28,6 +28,19 @@ function initiateQuill () {
 		},
 	});
 }
+
+function setPublishButton (published) {
+	var element = document.getElementById ("editor-toolbar__publish-button");
+	if (published) {
+		element.firstChild.innerText = "Unpublish";
+		element.classList.add("published");
+	}
+	else {
+		element.firstChild.innerText = "Publish";
+		element.classList.remove("published");
+	}
+}
+
 function editDocument() {
 	//Loads a previously edited document
 	if(!isSignedIn()){return;}
@@ -45,6 +58,7 @@ function editDocument() {
     	var ref = snapshot.val().documentRef;
 		document.getElementById("document-name").innerHTML = title;
 		document.getElementById("editor").innerHTML = ref;
+		setPublishButton (snapshot.val().isPublished);
 		initiateQuill();
 	});
 }
@@ -121,6 +135,24 @@ function getUserDocuments (divId) {
 			var documentKey = childSnapshot.key;
 			var dateLastModified = childSnapshot.val().dateLastModified;
 			mergedHTML += "<div class='member-documents__document'><div class='member-documents__document-name'><a class='member-document__link' href='/edit.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div></div>";
+		});
+		document.getElementById(divId).innerHTML = mergedHTML;
+	});
+}
+
+function getPublicDocuments (divId) {
+	//Iterates through all saved documents
+	var query = firebase.database().ref('public/').orderByKey();
+	query.once("value").then(function(snapshot) {
+		var mergedHTML = '';
+		var noDocuments = 0;
+		snapshot.forEach(function(childSnapshot){
+			noDocuments++;
+			var documentName = childSnapshot.val().documentName;
+			var documentAuthor = childSnapshot.val().author;
+			var documentKey = childSnapshot.key;
+			var dateLastModified = childSnapshot.val().dateLastModified;
+			mergedHTML += "<div class='public-documents__document'><div class='public-documents__document-name'><a class='public-documents__link' href='/view.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "&author=" + encodeURI(documentAuthor) + "&datemodified=" + encodeURI(dateLastModified) + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div><div class='public-documents__author'>" + documentAuthor + "</div></div>";
 		});
 		document.getElementById(divId).innerHTML = mergedHTML;
 	});
