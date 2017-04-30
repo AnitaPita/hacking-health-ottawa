@@ -157,7 +157,7 @@ function getUserDocuments (divId) {
 	});
 }
 
-function getPublicDocuments (divId, noToFetch) {
+function getSomePublicDocuments (divId, noToFetch) {
 	//Iterates through all saved documents
 	var query = firebase.database().ref('public/').orderByKey();
 	query.once("value").then(function(snapshot) {
@@ -165,13 +165,15 @@ function getPublicDocuments (divId, noToFetch) {
 		var noDocuments = 0;
 		snapshot.forEach(function(childSnapshot){
 			noDocuments++;
-			if (noDocuments == noToFetch)
-				break;
 			var documentName = childSnapshot.val().documentName;
 			var documentAuthor = childSnapshot.val().author;
 			var documentKey = childSnapshot.key;
 			var dateLastModified = childSnapshot.val().dateLastModified;
 			mergedHTML += "<div class='public-documents__document'><div class='public-documents__document-name'><a class='public-documents__link' href='/view.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "&author=" + encodeURI(documentAuthor) + "&datemodified=" + encodeURI(dateLastModified) + "'>" + documentName + "</a></div><div class='public-documents__date'>" + dateLastModified + "</div><div class='public-documents__author'>" + documentAuthor + "</div></div>";
+			if (noDocuments === noToFetch){
+				document.getElementById(divId).innerHTML = mergedHTML;
+				return;
+			}
 		});
 		document.getElementById(divId).innerHTML = mergedHTML;
 	});
