@@ -82,13 +82,19 @@ function saveNewDocument(filename) {
 	var dlm = d.getUTCMonth()+" "+d.getUTCDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
 	var documentRef = document.getElementById("editor").innerHTML;
 
-	userRef.push().set({
+	var newDocRef = userRef.push();
+	console.log(newDocRef.key);
+
+	newDocRef.set({
 		documentName : title,
 		documentRef : documentRef,
 		dateLastModified : dlm,
 		isPublished: false,
 		publishedKey : "",
 	})
+	
+	return newDocRef.key;
+
 }
 
 function saveHandler (){
@@ -119,21 +125,49 @@ function getUserDocuments (divId) {
 	});
 }
 
-function publishDocument(filename) {
-	var uid = firebase.auth().currentUser.uid;	
-	var docRef = firebase.database().ref('public');
+function publishHandler (){
+	var documentName = document.getElementById('document-name').innerHTML;
+	var key = getURLParam().key;
+	if (!key)
+		console.log("couldn't find private key, creating new document");
+		key = saveNewDocument(documentName);
+		console.log("Key is:" + key);
+		
+	console.log("handler says: "+documentName);
+	publishDocument (documentName, key);
+}
 
-	var title = filename || document.getElementById("document-name").innerHTML;
+function publishDocument(filename, privateKey) {
+	console.log("Publishing a document");
+	//var privateKey = getURLParam().key;
+	var uid = firebase.auth().currentUser.uid;
+	var userRef = firebase.database().ref('public');
+
+	var title = filename;
+
+	firebase.database().ref('/users/' + uid).once('value').then(function(snapshot) {
+					var firstName = snapshot.val().firstName;
+					var lastName = snapshot.val().lastName;
+
+					var author = firstName+" "+lastName;
+	var d = new Date();
+	var dlm = d.getUTCMonth()+" "+d.getUTCDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
 	var documentRef = document.getElementById("editor").innerHTML;
 
-	var dlm = d.getUTCMonth()+" "+d.getUTCDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
-
-	docRef.push().set({
+	//Create a new published document.
+	console.log(title);
+	console.log(privateKey);
+	userRef.push().set({
 		documentName : title,
 		documentRef : documentRef,
-		author : uid,
 		dateLastModified : dlm,
+		author : author,
+		isPublished: true,
+		privateKey : privateKey,
 	})
+	});
+
+	
 	//return to home page with a success/fail.
 }
 
