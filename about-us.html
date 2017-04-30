@@ -8,7 +8,6 @@ title: "Browse documents"
 <!--[if IE 9 ]> <html class="ie9"> <![endif]-->
 <head>
 	{% include head.html %}
-	<link rel="stylesheet" href="/stylesheets/view.css">
 </head>
 <body ng-app="authApp" ng-controller="AuthController">
 	{% include nav.html %}
@@ -19,16 +18,10 @@ title: "Browse documents"
 	</script>
 
 	<div class="content content--text">
-		<h1>See what others have created</h1>
-		<hr>
+		<h1>More about us</h1>
 		<div id="public-documents">
 		</div>
 	</div>
-
-	<script>
-		//Writes the public documents to the div
-		getPublicDocuments("public-documents");
-	</script>
 	{% include footer.html %}
 </body>
 </html>

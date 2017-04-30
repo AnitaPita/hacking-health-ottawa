@@ -1,20 +1,30 @@
 <div id="footer">
-	<div class="content footer--content">
+	<div class="footer__wrapper">
 		<div class="footer__col">
-			<h2>Contact us <span style="opacity:0.3">:</span></h2>
-			<ul>
-				<li><a href="http://kevan.lu">Kevan Lu</a></li>
-				<li><a href="http://anitapopescu.me/">Anita Popescu</a></li>
-			</ul>
+			<div id="recent-news">
+				<h3>Recent News&nbsp;<span style="opacity:0.3">:</span></h3>
+				<div id="news-list">
+					{% for post in site.posts limit:3 %}
+						<div class="news-list__link"><a href="{{ post.url }}">{{ post.title }}</a></div>
+					{% endfor %}
+				</div>
+			</div>
 		</div>
 		<div class="footer__col">
-			<h2>
-				Find us on <span style="opacity:0.3">:</span>
-			</h2>
+			<h3>
+				Find us on&nbsp;<span style="opacity:0.3">:</span>
+			</h3>
 			<li><a href="https://github.com/kevanlu/hacking-health-ottawa">Github</a></li>
 			<li>
-				Copyright <script>document.write((new Date()).getFullYear())</script> {{ site.data.values.app_name }}.<br> Developed by {{ site.data.values.site_author }}
+				Developed by {{ site.data.values.site_author }} for <a href="http://hackinghealth.ca/city/ottawa-canada/">Hacking Health Ottawa 2017</a>
 			</li>		
+		</div>
+		<div class="footer__col">
+			<h3>
+				Contact us&nbsp;<span style="opacity:0.3">:</span>
+			</h3>
+				<div class="email-icon"><i class="fa fa-envelope-o mail"></i></div><a href="mailto:klu2017@meds.uwo.ca">Kevan Lu</a><br>
+				<div class="email-icon"><i class="fa fa-envelope-o mail"></i></div><a href="anita.popescu@gmail.com">Anita Popescu</a><br>
 		</div>
 	</div>
 </div>

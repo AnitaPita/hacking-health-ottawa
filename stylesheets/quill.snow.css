@@ -60,7 +60,7 @@
 }
 .ql-editor ol,
 .ql-editor ul {
-  padding-left: 1.5em;
+  padding-left: 0em;
 }
 .ql-editor ol > li,
 .ql-editor ul > li {
@@ -101,7 +101,7 @@
 }
 .ql-editor ol li,
 .ql-editor ul li {
-  padding-left: 1.5em;
+  padding-left: 0.5em;
 }
 .ql-editor ol li {
   counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
@@ -552,10 +552,12 @@
   display: none;
 }
 .ql-snow .ql-editor h1 {
-  font-size: 2em;
+  font-size: 1.7em;
+  padding-bottom:0.5em;
 }
 .ql-snow .ql-editor h2 {
-  font-size: 1.5em;
+  font-size: 1.4em;
+  padding-bottom:0.4em;
 }
 .ql-snow .ql-editor h3 {
   font-size: 1.17em;

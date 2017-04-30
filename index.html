@@ -23,28 +23,106 @@ title: Home Page
 			document.querySelector( "#logo" ).classList.toggle("hidden");
 		</script>
 
-		<div class="content">
-			<div id="home-header__title">{{ site.data.values.home_title }}</div>
-			<div id="home-header__subtitle">
-				{{ site.data.values.home_description }}
+		<div class="content flex-wrapper">
+			<div id="home-header__text">
+				<div id="home-header__title">{{ site.data.values.home_title }}</div>
+				<div id="home-header__subtitle">
+					{{ site.data.values.home_description }}
+				</div>
+			</div>
+			<div id="home-header__graphic">
+				<script>
+					function writeImage () {
+						document.write('<img src="images/pages/img' + Math.floor(Math.random()*20 + 1) + '.jpg"/>');
+					}
+				</script>
+				<div id="graphic__1">
+					<script type="text/javascript">writeImage()</script>
+				</div>
+				<div id="graphic__2">
+					<script type="text/javascript">writeImage()</script>
+				</div>
+				<div id="graphic__3">
+					<script type="text/javascript">writeImage()</script>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="content content--text">
-		<div id="recent-news">
-			<h1><strong>Recent News</strong></h1>
-			<div class="button"><a href="news/">See All Articles</a></div>
-			<div id="news-list">
-				{% for post in site.posts limit:3 %}
-					<div class="news-list__date">{{ post.date | date: '%b %d' }}</div>
-					<li class="recent-news__list-item">
-						<div class="news-list__link"><a href="{{ post.url }}">{{ post.title }}</a></div>
-						<div class="news-list__desc">{{ post.description }}</div>
-					</li>
-				{% endfor %}
+	<div id="features" class="content content--text">
+		<div class="features__feature">
+			<div class="feature__text-wrapper animate">
+				<h3 class="feature-title editable">Create documents effortlessly</h3>
+				<p class="editable">Create documents using an online interface that is similar to the ones you already know how to use. Add images, tables, and graphics in seconds.</p> 
+			</div>
+			<div class="feature__img-wrapper animate">
+				<img src="images/graphics/graphic1.svg" />
 			</div>
 		</div>
+		<div class="features__feature">
+			<div class="feature__text-wrapper animate">
+				<h3 class="feature-title editable">Add interactive questions and graphics</h3>
+				<p class="editable">Create interactive clinical cases to test your diagnosis and management skills &ndash; and then share them with learners.</p> 
+			</div>
+			<div class="feature__img-wrapper animate">
+				<img src="images/graphics/graphic2.svg" />
+			</div>
+		</div>
+		<div class="features__feature">
+			<div class="feature__text-wrapper animate">
+				<h3 class="feature-title editable">One click publishing</h3>
+				<p class="editable">Ready to share your work with the world? Press one button, and instantly publish your document for everyone to see.</p> 
+			</div>
+			<div class="feature__img-wrapper animate">
+				<img src="images/graphics/graphic3.svg" />
+			</div>
+		</div>
+	</div>
+	<div id="recently-published">
+		<h1>See what others have recently published</h1>
+	</div>
+	<div id="editor-sample">
+		<h1 id="editor-sample__title">Making a document is easy – go on, try it yourself</h1>
+		<div id="editor-sample__desc">Try editing the text below. It all works!</div>
+		<div id="editor-sample__wrapper">
+			<div id="editor-sample__editor">
+				<h2>Lobes of the Cerebrum</h2>
+				<ul>
+					<li>The cerebrum has <b>5 lobes</b> (paired):</p></li>
+					<ol>
+						<li><b>Frontal</b></li>
+						<li><b>Parietal</b></li>
+						<li><b>Temporal</b></li>
+						<li><b>Occipital</b></li>
+						<li><b>Insular</b> (hidden; insulated)</li>
+					</ol>
+					<li>The frontal and parietal lobes are separated by the <b>central sulcus</b>.</li>
+					<li>The frontal and temporal lobes are separated by the <b>lateral (sylvian) fissure</b>.</li>
+					<li>The occipital and parietal lobes are aptly separated by the <b>parietal occipital sulcus.</b></li>
+				</ul>
+				<br>
+				<img src="/images/graphics/editor-sample.png">
+			</div>
+		</div>
+	</div>
+	<script>
+		quill = new Quill('#editor-sample__editor', {
+		    theme: 'snow',
+			modules: {
+			  	toolbar: [
+			    	[{ header: [1, 2, 3, false] }],
+			    	['bold', 'italic', 'underline'],
+			    	[{ 'list': 'ordered'}, { 'list': 'bullet' }],
+			    	[{ 'script': 'sub'}, { 'script': 'super' }, { 'align': [] }],
+			    	[{ 'indent': '-1'}, { 'indent': '+1' }],
+			    	['blockquote', 'image', 'link']
+			    ]
+			},
+		});
+	</script>
+	<div id="onboarding-banner">
+		<h1 id="onboarding-banner__title">Ready to get started?</h1>
+		<div id="onboarding-banner__link"><a href="new-account.html">Sign up for a new account now</a></div>
 	</div>
 	{% include footer.html %}
 </body>

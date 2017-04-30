@@ -19,15 +19,15 @@
 }
 
 $header: "Circular", Helvetica, Arial, sans-serif;
-$sans-serif: "Proxima Nova", Helvetica, Arial, sans-serif;
+$sans-serif: "Lato", "Proxima Nova", Helvetica, Arial, sans-serif;
 $serif: "Source Serif Pro", Georgia, serif;
 
-$accent: #BB0A21;
-$dark: #222222;
-$darker: #111111;
-$neutral: #777777;
-$bright: #BBBBBB;
-$brighter: #F7F7F7;
+$accent: #A81F0A;
+$darker: #222827;
+$dark: #414948;
+$neutral: #889696;
+$bright: #B8BDB5;
+$brighter: #E8EAE3;
 
 $content-width: 1000px;
 
@@ -37,15 +37,21 @@ $content-width: 1000px;
 .content {
 	margin: 0 auto;
 	width: $content-width;
-	max-width:calc(100% - 40px);
-	padding: 0px 20px 0px 20px;
+	max-width:calc(100% - 80px);
+	padding: 0px 40px 0px 40px;
 }
 .content--text {
-	padding: 50px 20px 40px 20px;
+	padding: 50px 40px 40px 40px;
 }
 @media only screen and (max-width: 767px) {
-	max-width:calc(100% - 30px);
-	padding: 0 15px 0 15px;
+	.content {
+		flex-wrap:wrap;
+		max-width:calc(100% - 30px);
+		padding: 0 15px 0 15px;
+	}
+	.content--text {
+		padding: 30px 15px 30px 15px;
+	}
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 }
@@ -64,9 +70,8 @@ $content-width: 1000px;
 	}
 	a:after{
 		content: "→";
-		padding-left:8px;
+		padding-left:5px;
 		vertical-align:bottom;
-		font-size:28px;
 	}
 	a:hover{
 		border:2px solid $bright;

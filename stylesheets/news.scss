@@ -19,7 +19,7 @@
 	a, a:hover {color:white; border-bottom:none;}
 	font-family:$header;
 	line-height:1.2em;
-	padding-bottom:20px;
+	padding-bottom:10px;
 }
 #newest-article__description {
 	color:$bright;
@@ -54,6 +54,9 @@
 ––––––––––––––––––––––––––––––––––––––––*/
 
 #archives{}
+#archives__title h1 {
+	font-weight:bold;
+}
 #archives__list {
 	padding-top:20px;
 	list-style:none;
@@ -106,7 +109,7 @@
 		display:inline-block;
 		font-family:$sans-serif;
 		a {
-			padding-top:6px;
+			padding-top:4px;
 			font-weight:bold;
 			color:$neutral;
 			border-color:$bright;
@@ -147,9 +150,6 @@
 	font-size:15px;
 	padding-bottom:10px;
 }
-#body {}
-#title, #body { max-width:$content-width; }
-#body { padding-bottom:10px; }
 
 .other-news--index-page {
 	background-color:none !important;
