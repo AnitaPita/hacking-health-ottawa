@@ -9,6 +9,29 @@
 		span.innerHTML= s;
 		return span.firstChild.innerHTML;
 	};
+
+	function getCurrentParsedDate() {
+		var monthNames = ["January", "February", "March", "April", "May", "June",
+  		"July", "August", "September", "October", "November", "December"];
+
+		var d = new Date();
+		var monthString = monthNames[d.getMonth()];
+		var hour = d.getHours();
+		var meridian = "am";
+		if(hour>12)
+		{
+			hour -= 12;
+			meridian = "pm";
+		}
+		else if(hour<1)
+		{
+			hour += 12;
+		}
+
+
+		return monthString+" "+d.getDate()+", "+d.getFullYear()+" at "+hour+":"+d.getMinutes()+meridian;
+		document.write("The current month is " + monthNames[d.getMonth()]);
+	}
     
 	String.prototype.replaceAll = function(search, replacement) {
 	    var target = this;

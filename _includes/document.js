@@ -75,7 +75,7 @@ function saveExistingDocument(filename, privateKey) {
 	userRef = userRef.child("documents");
 	userRef = userRef.child(privateKey);
 	var d = new Date();
-	var dlm = d.getMonth()+" "+d.getDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
+	var dlm = getCurrentParsedDate();
 
 	userRef.update({
 		documentRef : documentRef,
@@ -93,7 +93,7 @@ function saveNewDocument(filename) {
 	userRef = userRef.child(uid);
 	userRef = userRef.child("documents");
 	var d = new Date();
-	var dlm = d.getUTCMonth()+" "+d.getUTCDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
+	var dlm = getCurrentParsedDate();
 	var documentRef = document.getElementById("editor").innerHTML;
 
 	var newDocRef = userRef.push();
@@ -185,7 +185,7 @@ function publishDocument(filename, privateKey) {
 
 					var author = firstName+" "+lastName;
 	var d = new Date();
-	var dlm = d.getUTCMonth()+" "+d.getUTCDay()+", "+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
+	var dlm = getCurrentParsedDate();
 	var documentRef = document.getElementById("editor").innerHTML;
 
 	//Create a new published document.
