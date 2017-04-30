@@ -1,0 +1,31 @@
+---
+title: "Silo-tions for Healthcare: Panel on Breaking Down Silos in Modern Healthcare Systems"
+date: 2017-01-19
+description: Hacking Health Ottawa is at an exciting nexus! With the welcoming of two new collaborative partners, IBM and Carleton University (Faculty of Engineering and Design), we find ourselves at the bridge between the “Meet” and “Learn” phase on our route to the Ottawa Hackathon. A number of technical workshops to be hosted at IBM are on the horizon, promising to supplement innovative ideas with hands-on knowledge. To carry on the conversation and spark new inspirations, a panel discussion involving stakeholders across the healthcare industry was organized on January 11th, 2016 at Impact Hub Ottawa with a sold out crowd of healthcare enthusiasts in attendance.
+---
+
+Hacking Health Ottawa is at an exciting nexus! With the welcoming of two new collaborative partners, IBM and Carleton University (Faculty of Engineering and Design), we find ourselves at the bridge between the “Meet” and “Learn” phase on our route to the Ottawa Hackathon. A number of technical workshops to be hosted at IBM are on the horizon, promising to supplement innovative ideas with hands-on knowledge. To carry on the conversation and spark new inspirations, a panel discussion involving stakeholders across the healthcare industry was organized on January 11th, 2016 at Impact Hub Ottawa with a sold out crowd of healthcare enthusiasts in attendance.
+
+On the theme of breaking down the silos in modern healthcare systems, the panel’s moderator, Adam Freed, opened with a three part definition of the term “Silo”:
+
+“1. A tower or pit on a farm used to store grain
+2. An underground chamber in which a guided missile is kept ready for firing
+3. A system, process, department, etc. that operates in isolation from others”
+
+Motivating the audience on anecdotes of the third definition, he challenged the attendees to reflect on the absence of interoperability in healthcare systems and to innovate solutions to break down these silos. Prompting us with suggestions of where this responsibility might lie, we considered governmental bodies, the industry sector (both large and small), policy makers, medical professionals, and patients themselves. Leveraging the expertise of a diverse panel to lend some insight into the problem, a broad range of topics were broached and unique perspectives shared. Notably, each panelist recounted personal stories rooted at the core of their decision to contribute to advances in healthcare. 
+
+From the front-line of medicine, Dr. Mark Dermer, a family physician in Ottawa self-identifies as a proponent for technological innovation and recounted numerous initiatives undertaken to incorporate impactful solutions in his many years of practice. He described the increasing need for open-minded and technology-centric cohorts of medical practitioners to be the first adopters of innovations in medical spaces.
+
+With patients and tech users in mind, designer Monica Zaczynski from Telus Health described her experience in creating intuitive and user-friendly systems through the process of iterating a framework based on user feedback. Emphasizing the need for open channels of communication when working with a multidisciplinary team, her ideology embodies the essence of a silo-free healthcare system.
+
+Representing the start-up space, Felipe Izquierdo the co-Founder of Welbi offered a perspective of challenging learning curves and uphill battles in the face of obstacles. The topic of breaking down silos in healthcare resonated with his experiences and he described certain freedoms in start-up culture to develop technologies that could “play nice” with others.
+
+Reminding us all that improvements in health care need not be limited purely to digitalization, Jeannine Lafrenière the Founder and President of the Forget for a Moment Foundation offered a humanizing perspective and described the wealth of success and happiness generated from simple solutions such as introducing green spaces inside clinical environments. A strong believer in the power of individuals, she advocated for the voice of the crowd to kindle changes to policy.
+
+When considering the challenges of general healthcare systems, “waiting lines” were an inevitable topic. The panelists discussed the critical demands of the healthcare systems and the audience became increasingly engaged. Topics such as “private vs. public”, industry competition, international healthcare models, and patient empathy are but some from a long list which flowed throughout the evening. Many opinions were shared and many were challenged allowing panelist and audience alike to dig into the roots of the problem.
+
+Photo of the panelists and moderato for the January 11, 2017 panel.An interesting theme which emerged was the scale of the industry best suited to drive the development of interoperable healthcare systems. On one hand, larger corporations have financial freedom and an established influence facilitating the development and deployment of their technologies. However Monika notes that their dependence on legacy software and business constraints could limit the freedom necessary to create a user-friendly and future-facing frameworks. Contrarily, the start-up space offers such freedoms, though lacks the influence to establish their technology in a generalized public. Additionally, Felipe championed the idea that a small company’s close relations to their few clients was considered advantageous when compared to the client “out-of-touchness” of their larger contemporaries.
+
+In the concluding remarks, the panel synthesis was the realization that no single “silver bullet” solution exists and that each stakeholder of the healthcare system, from patient, though industry, to government has a role to play in the gradual resolution of the current silo-suffering system.
+
+Characteristic of the “Meet” phase of the Hacking Health timeline, a networking opportunity followed the panel, enabling the conversation to disseminate into the mingling of the crowd. In the anticipation of technical sessions on the horizon, the room buzzed in the excited exchange of ideas.

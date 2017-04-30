@@ -27,9 +27,12 @@
 		{
 			hour += 12;
 		}
+		else if(hour==12)
+		{
+			var meridian = "PM";
+		}
 
 		return monthString+" "+d.getDate()+", "+d.getFullYear()+" at "+hour+":"+d.getMinutes()+ " " + meridian;
-		document.write("The current month is " + monthNames[d.getMonth()]);
 	}
     
 	String.prototype.replaceAll = function(search, replacement) {

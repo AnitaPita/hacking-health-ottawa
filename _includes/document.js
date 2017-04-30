@@ -263,18 +263,24 @@ function publishDocument(filename, privateKey) {
 }
 
 function unpublishDocument(privateKey) {
-	var publicRef = firebase.database().ref('public').child(privateKey);
-	publicRef.delete().then(function() {
-		showAlert("You have successfully unpublished this document.", "You can still view your file in your 'My documents' tab.");
+	var uid = firebase.auth().currentUser.uid;
+	var privateRef = firebase.database().ref('private').child(uid).child("documents").child(privateKey);
+
+	privateRef.once("value",function(snapshot){
+		var publicKey = snapshot.val().publishedKey;
+
+		var publicRef = firebase.database().ref('public').child(publicKey);
+		publicRef.remove().then(function() {
+			showAlert("You have successfully unpublished this document.", "You can still view your file in your 'My documents' tab.");
 		
-		var uid = firebase.auth().currentUser.uid;
-		var savedRef = firebase.database().ref('private').child(uid).child("documents").child(privateKey);
-		savedRef.update({
-			isPublished :false,
-			publishedKey : "",
+			var uid = firebase.auth().currentUser.uid;
+			privateRef.update({
+				isPublished :false,
+				publishedKey : "",
+			});
+		}).catch(function(error) {
+  			console.log(error);
 		});
-	}).catch(function(error) {
-  		console.log("error unpublishing document.");
 	});
 }
 
