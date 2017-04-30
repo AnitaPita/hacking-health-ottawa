@@ -86,7 +86,7 @@ function saveExistingDocument(filename, privateKey) {
 		var isPub = snapshot.val().isPublished;
 		if(isPub){
 			var publicKey = snapshot.val().publishedKey;
-			var publicRef = firebase.database().ref('public').child(publishedKey);
+			var publicRef = firebase.database().ref('public').child(publicKey);
 			publicRef.update({
 				documentRef : documentRef,
 				dateLastModified : dlm,
@@ -229,7 +229,7 @@ function publishDocument(filename, privateKey) {
 	})
 
 	var savedRef = firebase.database().ref('private').child(uid).child("documents").child(privateKey);
-	console.log("published key is"+newDocRef.key);
+	console.log("published key is "+newDocRef.key);
 	savedRef.update({
 		isPublished :true,
 		publishedKey : newDocRef.key,
