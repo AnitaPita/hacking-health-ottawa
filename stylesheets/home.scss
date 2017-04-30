@@ -145,6 +145,21 @@
 	border-bottom:2px solid $brighter;
 }
 
+//About us section
+.authors__author{
+	display:flex;
+	padding-bottom:20px;
+}
+.author__img-wrapper img {
+	width:200px;
+}
+.author__text-wrapper {
+	padding-left:30px;
+}
+.author-title {
+	font-size:1.5em;
+}
+
 @media only screen and (max-width: 959px) {
 	#home-header__graphic{display:none;}
 }

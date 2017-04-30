@@ -3,19 +3,30 @@
 
 @import 'variables';
 
+#public-documents {
+	display:flex;
+	flex-wrap:wrap;
+}
 .public-documents__document {
-
+	width:calc(50% - 45px);
+	background-color:white;
+	padding:8px 15px 8px 15px;
+	margin:0 15px 15px 0;
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	border:2px solid $brighter;
 }
 .public-documents__document-name {
 	
 }
 .public-documents__date {
+	color:$bright;
 	
 }
 .public-documents__author {
 	
 }
-
 
 @media only screen and (min-width:768px) and (max-width: 959px) {}
 @media only screen and (max-width: 767px) {}

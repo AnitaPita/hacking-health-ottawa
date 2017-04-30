@@ -8,6 +8,7 @@ title: "Browse documents"
 <!--[if IE 9 ]> <html class="ie9"> <![endif]-->
 <head>
 	{% include head.html %}
+	<link rel="stylesheet" href="/stylesheets/home.css">
 </head>
 <body ng-app="authApp" ng-controller="AuthController">
 	{% include nav.html %}
@@ -19,7 +20,27 @@ title: "Browse documents"
 
 	<div class="content content--text">
 		<h1>More about us</h1>
-		<div id="public-documents">
+		<hr>
+		<div id="authors">
+			<div class="authors__author">
+				<div class="author__img-wrapper animate">
+					<img src="images/kevanlu.jpg" />
+				</div>
+				<div class="author__text-wrapper animate">
+					<h3 class="author-title editable">Kevan Lu</h3>
+					<p class="editable">Create documents using an online interface that is similar to the ones you already know how to use. Add images, tables, and graphics in seconds.</p> 
+				</div>
+			</div>
+			<div class="authors__author">
+				<div class="author__img-wrapper animate">
+					<img src="images/anitapopescu.png" />
+				</div>
+				<div class="author__text-wrapper animate">
+					<h3 class="author-title editable">Anita Popescu</h3>
+					<p class="editable">I'm a Computer Science student minoring in Life Sciences at the University of Ottawa, with experience in programming, web development, and databases. I am also curious about the ever-growing biotechnology field and am interested in the movement to help the medical sector improve patient care with computerized assistance as well as relieve some of the stresses that physicians and other medical staff encounter in their busy line of work.</p>
+					<p>My hobbies outside of computer science include music and theatre, reading, and involvement in clubs and associations, such as the University of Ottawa's Computer Science Students' Association and Pop Orchestra.</p> 
+				</div>
+			</div>
 		</div>
 	</div>
 	{% include footer.html %}

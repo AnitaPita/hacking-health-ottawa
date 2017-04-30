@@ -17,19 +17,18 @@
 		var d = new Date();
 		var monthString = monthNames[d.getMonth()];
 		var hour = d.getHours();
-		var meridian = "am";
+		var meridian = "AM";
 		if(hour>12)
 		{
 			hour -= 12;
-			meridian = "pm";
+			meridian = "PM";
 		}
 		else if(hour<1)
 		{
 			hour += 12;
 		}
 
-
-		return monthString+" "+d.getDate()+", "+d.getFullYear()+" at "+hour+":"+d.getMinutes()+meridian;
+		return monthString+" "+d.getDate()+", "+d.getFullYear()+" at "+hour+":"+d.getMinutes()+ " " + meridian;
 		document.write("The current month is " + monthNames[d.getMonth()]);
 	}
     
