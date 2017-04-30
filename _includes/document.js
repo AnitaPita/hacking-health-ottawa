@@ -1,4 +1,5 @@
 <script type="text/javascript">
+var quill;
 var storageRef = firebase.storage().ref();
 var docName;
 
@@ -12,14 +13,31 @@ function createNewDocument(filename) {
 	console.log("Creating document.");
 }
 
+function initiateQuill () {
+	quill = new Quill('#editor', {
+	    theme: 'snow',
+		modules: {
+		  	toolbar: [
+		    	[{ header: [1, 2, 3, false] }],
+		    	['bold', 'italic', 'underline'],
+		    	[{ 'list': 'ordered'}, { 'list': 'bullet' }],
+		    	[{ 'script': 'sub'}, { 'script': 'super' }, { 'align': [] }],
+		    	[{ 'indent': '-1'}, { 'indent': '+1' }],
+		    	['blockquote', 'image', 'link']
+		    ]
+		},
+	});
+}
 function editDocument() {
 	//Loads a previously edited document
 	if(!isSignedIn()){return;}
 	var docID = getURLParam().key;
 
 	//If the docID doesn't exist, it's a new document, so we return.
-	if (!docID)
+	if (!docID) {
+		initiateQuill();
 		return;
+	}
 
 	var userDocs = firebase.database().ref("private/" + getUserID() + "/documents/");
 	userDocs.orderByKey().equalTo(docID).on("child_added" ,function(snapshot) {
@@ -27,6 +45,7 @@ function editDocument() {
     	var ref = snapshot.val().documentRef;
 		document.getElementById("document-name").innerHTML = title;
 		document.getElementById("editor").innerHTML = ref;
+		initiateQuill();
 	});
 }
 
@@ -36,7 +55,7 @@ function saveExistingDocument(filename, privateKey) {
 	var userRef = firebase.database().ref('private');
 
 	//var title = filename || document.getElementById("document-name").innerHTML;
-	var documentRef = document.getElementById("editor").innerHTML;
+	var documentRef = document.getElementById("editor").firstChild.innerHTML;
 
 	userRef = userRef.child(uid);
 	userRef = userRef.child("documents");
@@ -48,14 +67,6 @@ function saveExistingDocument(filename, privateKey) {
 		documentRef : documentRef,
 		dateLastModified : dlm,
 	});
-
-	// userRef.push().set({
-	// 	docName : title,
-	// 	documentRef : documentRef,
-	// 	dateLastModified : dlm,
-	// })
-
-	//TODO: redirect to edit
 }
 
 function saveNewDocument(filename) {
@@ -102,7 +113,7 @@ function getUserDocuments (divId) {
 			var documentName = childSnapshot.val().documentName;
 			var documentKey = childSnapshot.key;
 			var dateLastModified = childSnapshot.val().dateLastModified;
-			mergedHTML += "<div class='member-documents__document'><div class='member-documents__document-name'><a class='member-document__link' href='/edit.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div></div>";
+			mergedHTML += "<div class='member-documents__document'><div class='member-documents__document-name'><a class='member-document__link' href='/edit.html?filename=" + encodeURIRFC3986(documentName) + "&key=" + documentKey + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div></div>";
 		});
 		document.getElementById(divId).innerHTML = mergedHTML;
 	});

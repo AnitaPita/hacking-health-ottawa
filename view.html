@@ -1,5 +1,5 @@
 ---
-title: "Browse documents"
+title: "Document"
 ---
 
 <!DOCTYPE html>
@@ -8,6 +8,9 @@ title: "Browse documents"
 <!--[if IE 9 ]> <html class="ie9"> <![endif]-->
 <head>
 	{% include head.html %}
+
+	<!--Page Specific Stylesheet-->
+	<link rel="stylesheet" href="/stylesheets/edit.css">
 </head>
 <body ng-app="authApp" ng-controller="AuthController">
 	{% include nav.html %}
@@ -18,16 +21,20 @@ title: "Browse documents"
 	</script>
 
 	<div class="content content--text">
-		<h1>See what others have created</h1>
+		<div><h1 id="document-name"></h1></div>
+		<script>
+			//Decodes the filename URI from the URL
+			var decoded = decodeURI (getURLParam().filename);
+			//If the filename exists
+			if (decoded)
+				document.getElementById("document-name").innerHTML = decoded;
+			else
+				document.getElementById("document-name").innerHTML = "Untitled Document";
+		</script>
 		<hr>
-		<div id="public-documents">
+		<div id="viewer">
 		</div>
 	</div>
-
-	<script>
-		//Writes the public documents to the div
-		getPublicDocuments("public-documents");
-	</script>
 	{% include footer.html %}
 </body>
 </html>

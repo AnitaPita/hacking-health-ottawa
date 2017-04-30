@@ -65,7 +65,7 @@ $('.create-doc-modal').click(function(){
         callback: function(data) {
         	if (data != false){
 				//Converts the filename to a URL safe format.
-				var uri = encodeURI(data.doc__name);
+				var uri = encodeURIRFC3986(data.doc__name);
 				window.location = "/edit.html?filename=" + uri;	 
 	       }
         }
