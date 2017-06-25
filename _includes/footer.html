@@ -5,7 +5,7 @@
 				<h3>Recent News&nbsp;<span style="opacity:0.3">:</span></h3>
 				<div id="news-list">
 					{% for post in site.posts limit:3 %}
-						<div class="news-list__link"><a href="{{ post.url }}">{{ post.title }}</a></div>
+						<div class="news-list__link"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
 					{% endfor %}
 				</div>
 			</div>
@@ -40,10 +40,10 @@
 </script>
 
 <!-- Modal Dialogs -->
-<script src="/js/vex.combined.min.js"></script>
+<script src="{{ site.baseurl }}/js/vex.combined.min.js"></script>
 <script>vex.defaultOptions.className = 'vex-theme-default';</script>
-<link rel="stylesheet" href="/stylesheets/vex.css" />
-<link rel="stylesheet" href="/stylesheets/vex-theme-default.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/vex.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/vex-theme-default.css" />
 <script>
 //Login Modal Dialog
 $('.login-modal').click(function(){
@@ -54,7 +54,7 @@ $('.login-modal').click(function(){
 	    vex.dialog.buttons.YES.text = 'Login';
 	    vex.dialog.open({
 	        message: '<h3><strong>Log in to {{ site.data.values.app_name }}</strong></h3>',
-	        input: "<div class='vex-custom-field-wrapper'><label for='email'>EMAIL ADDRESS</label><div class='vex-custom-input-wrapper'><input name='email' id='login-email' type='email' placeholder='Enter your email' /></div></div><div class='vex-custom-field-wrapper'><label for='password'>PASSWORD</label><div class='vex-custom-input-wrapper'><input id='login-password' name='password' type='password' value=''/></div><div id='new-account-link'><a href='/new-account.html'>Create a New Account</a></div><div id='forgot-password'><a href='/forgot-password.html'>Forgot your Password?</a></div></div>",
+	        input: "<div class='vex-custom-field-wrapper'><label for='email'>EMAIL ADDRESS</label><div class='vex-custom-input-wrapper'><input name='email' id='login-email' type='email' placeholder='Enter your email' /></div></div><div class='vex-custom-field-wrapper'><label for='password'>PASSWORD</label><div class='vex-custom-input-wrapper'><input id='login-password' name='password' type='password' value=''/></div><div id='new-account-link'><a href='{{ site.baseurl }}/new-account.html'>Create a New Account</a></div><div id='forgot-password'><a href='{{ site.baseurl }}/forgot-password.html'>Forgot your Password?</a></div></div>",
 	        callback: function(data) {
 	        	if (data != false){
 		        	toggleSignIn ();
