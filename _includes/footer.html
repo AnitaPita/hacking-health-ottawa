@@ -77,7 +77,7 @@ $('.create-doc-modal').click(function(){
 				//Converts the filename to a URL safe format.
 				var encodedFilename = encodeURI(data.doc__name);
 				encodedFileName = encodedFilename.replaceAll("'", "");
-				window.location = "/edit.html?filename=" + encodedFileName;	 
+				window.location = "{{ site.baseurl }}/edit.html?filename=" + encodedFileName;	 
 	       }
         }
     });
