@@ -151,7 +151,7 @@ function getUserDocuments (divId) {
 			var documentName = childSnapshot.val().documentName;
 			var documentKey = childSnapshot.key;
 			var dateLastModified = childSnapshot.val().dateLastModified;
-			mergedHTML += "<div class='member-documents__document'><div class='member-documents__document-name'><a class='member-document__link' href='/edit.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div></div>";
+			mergedHTML += "<div class='member-documents__document'><div class='member-documents__document-name'><a class='member-document__link' href='{{ site.baseurl }}/edit.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "'>" + documentName + "</a></div><div class='member-documents__date'>" + dateLastModified + "</div></div>";
 		});
 		document.getElementById(divId).innerHTML = mergedHTML;
 	});
@@ -169,7 +169,7 @@ function getSomePublicDocuments (divId, noToFetch) {
 			var documentAuthor = childSnapshot.val().author;
 			var documentKey = childSnapshot.key;
 			var dateLastModified = childSnapshot.val().dateLastModified;
-			mergedHTML += "<div class='public-documents__document'><div class='public-documents__document-name'><a class='public-documents__link' href='/view.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "&author=" + encodeURI(documentAuthor) + "&datemodified=" + encodeURI(dateLastModified) + "'>" + documentName + "</a></div><div class='public-documents__date'>" + dateLastModified + "</div><div class='public-documents__author'>" + documentAuthor + "</div></div>";
+			mergedHTML += "<div class='public-documents__document'><div class='public-documents__document-name'><a class='public-documents__link' href='{{ site.baseurl }}/view.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "&author=" + encodeURI(documentAuthor) + "&datemodified=" + encodeURI(dateLastModified) + "'>" + documentName + "</a></div><div class='public-documents__date'>" + dateLastModified + "</div><div class='public-documents__author'>" + documentAuthor + "</div></div>";
 			if (noDocuments === noToFetch){
 				document.getElementById(divId).innerHTML = mergedHTML;
 				return;
@@ -191,7 +191,7 @@ function getPublicDocuments (divId) {
 			var documentAuthor = childSnapshot.val().author;
 			var documentKey = childSnapshot.key;
 			var dateLastModified = childSnapshot.val().dateLastModified;
-			mergedHTML += "<div class='public-documents__document'><div class='public-documents__document-name'><a class='public-documents__link' href='/view.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "&author=" + encodeURI(documentAuthor) + "&datemodified=" + encodeURI(dateLastModified) + "'>" + documentName + "</a></div><div class='public-documents__date'>" + dateLastModified + "</div><div class='public-documents__author'>" + documentAuthor + "</div></div>";
+			mergedHTML += "<div class='public-documents__document'><div class='public-documents__document-name'><a class='public-documents__link' href='{{ site.baseurl }}/view.html?filename=" + encodeURI(documentName) + "&key=" + documentKey + "&author=" + encodeURI(documentAuthor) + "&datemodified=" + encodeURI(dateLastModified) + "'>" + documentName + "</a></div><div class='public-documents__date'>" + dateLastModified + "</div><div class='public-documents__author'>" + documentAuthor + "</div></div>";
 		});
 		document.getElementById(divId).innerHTML = mergedHTML;
 	});
@@ -260,7 +260,7 @@ function publishDocument(filename, privateKey) {
 		publishedKey : newDocRef.key,
 		documentRef : documentRef,
 	});
-	showAlert("Congratulations! You have published this document.", "You can view it at <a href='/view.html?filename=" + encodeURI(title) + "&key=" + newDocRef.key + "&author=" + encodeURI(author) + "&datemodified=" + encodeURI(dlm) + "'>" + title + "</a>.");
+	showAlert("Congratulations! You have published this document.", "You can view it at <a href='{{ site.baseurl }}/view.html?filename=" + encodeURI(title) + "&key=" + newDocRef.key + "&author=" + encodeURI(author) + "&datemodified=" + encodeURI(dlm) + "'>" + title + "</a>.");
 	});
 }
 
