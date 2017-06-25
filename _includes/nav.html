@@ -1,8 +1,8 @@
 <div id="top-bar" class="invert {{page.lang}}">
 	<div id="top-bar__logo" class="animate">
 		<div>
-			<img id="logo-invert" src="/images/logo-invert.svg">
-			<img id="logo" src="/images/logo.svg">
+			<img id="logo-invert" src="{{ site.baseurl }}/images/logo-invert.svg">
+			<img id="logo" src="{{ site.baseurl }}/images/logo.svg">
 			<a href="/">{{ site.data.values.app_name }}</a>
 		</div>
 	</div>
@@ -18,13 +18,13 @@
 			<li id="member" class="nav__item"><a id="member-name" class="top-level members-only--header"></a>
 				<div class="nav__sub-menu">
 				    <ul>
-				    	<li><a href="/documents.html">Documents</a></li>
-				    	<li><a href="/account.html">Account</a></li>
-				    	<li><a class="login-modal" href='' onclick='return false'>Logout</a></li>
+				    	<li><a href="{{ site.baseurl }}/documents.html">Documents</a></li>
+				    	<li><a href="{{ site.baseurl }}/account.html">Account</a></li>
+				    	<li><a class="login-modal" href='{{ site.baseurl }}' onclick='return false'>Logout</a></li>
 				    </ul>
 				</div>
 			</li>
-			<li class="nav__item"><a href='' onclick='return false' id="login-button" class="login-modal">Login</a></li>
+			<li class="nav__item"><a href='{{ site.baseurl }}' onclick='return false' id="login-button" class="login-modal">Login</a></li>
 		</ul>
 	</div>
 </div>
