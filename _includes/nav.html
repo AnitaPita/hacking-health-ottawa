@@ -3,7 +3,7 @@
 		<div>
 			<img id="logo-invert" src="{{ site.baseurl }}/images/logo-invert.svg">
 			<img id="logo" src="{{ site.baseurl }}/images/logo.svg">
-			<a href="/">{{ site.data.values.app_name }}</a>
+			<a href="{{ site.baseurl }}/">{{ site.data.values.app_name }}</a>
 		</div>
 	</div>
 	<div id="top-bar__hamburger" class="animate">
@@ -11,10 +11,10 @@
 	</div>
 	<div id="nav" class="animate">
 		<ul>
-			<li id="browse" class="nav__item"><a class="top-level" href="/browse.html">Browse</a></li>
-			<li id="news" class="nav__item"><a class="top-level" href="/about-us.html">About us</a></li>
-			<li id="news" class="nav__item"><a class="top-level" href="/news/">News</a></li>
-			<li id="create" class="nav__item"><a href='' onclick='return false' class="top-level create-doc-modal">Create a Doc</a></li>
+			<li id="browse" class="nav__item"><a class="top-level" href="{{ site.baseurl }}/browse.html">Browse</a></li>
+			<li id="news" class="nav__item"><a class="top-level" href="{{ site.baseurl }}/about-us.html">About us</a></li>
+			<li id="news" class="nav__item"><a class="top-level" href="{{ site.baseurl }}/news/">News</a></li>
+			<li id="create" class="nav__item"><a href='{{ site.baseurl }}' onclick='return false' class="top-level create-doc-modal">Create a Doc</a></li>
 			<li id="member" class="nav__item"><a id="member-name" class="top-level members-only--header"></a>
 				<div class="nav__sub-menu">
 				    <ul>
