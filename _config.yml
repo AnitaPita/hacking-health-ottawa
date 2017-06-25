@@ -16,5 +16,3 @@ rdiscount:
   extensions: [smart]
   
 baseurl: "/publishmed"
-production_url : http://anitapita.github.io.com/publishmed
-BASE_PATH : http://anitapita.com/publishmed
